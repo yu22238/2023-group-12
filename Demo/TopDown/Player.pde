@@ -1,5 +1,6 @@
 public class Player extends GameObject {
     PShape rect;
+    // PImage img;
     Collider coll;
     PVector velocity;
     float speed;
@@ -12,6 +13,8 @@ public class Player extends GameObject {
     public Player (float x, float y, float w, float h) {
         super(x, y, w, h);
         this.rect = createShape(RECT, x, y, w, h);
+        // this.img = loadImage("filename");
+        // this.img.resize(int(w), int(h));
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 10;
@@ -75,6 +78,7 @@ public class Player extends GameObject {
     }
 
     public void display() {
-        shape(rect);    
+        shape(this.rect);  
+        // image(this.img, this.position.x, this.position.y);  
     }
 }

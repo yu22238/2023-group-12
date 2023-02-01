@@ -32,7 +32,7 @@ public class Collider {
         this.points[6] = this.leftMid;
         this.points[7] = this.rightMid;
     }
-
+    // check if this collider collided with other collider
     public boolean collideWith(Collider other) {
         for (PVector point: other.points) {
             if (collidePoint(point)) {
@@ -41,7 +41,7 @@ public class Collider {
         }
         return false;
     }
-
+    // check if this collider collided with the point
     public boolean collidePoint(PVector point) {
         if (point.x > this.topLeft.x && point.x < this.topRight.x) {
             if (point.y > this.topLeft.y && point.y < this.bottomLeft.y) {
@@ -50,14 +50,16 @@ public class Collider {
         }
         return false;
     }
-
+    // used to move along with the GameObject it attached to
+    // velocity-based move
     public void move(float xVel, float yVel) {
         this.position.add(new PVector(xVel, yVel));
         for (PVector point: this.points) {
             point.add(new PVector(xVel, yVel));
         }
     }
-
+    // used to move along with the GameObject it attached to
+    // position-based move
     public void moveTo(float x, float y) {
         this.position = new PVector(x, y);
         for (PVector point: this.points) {
