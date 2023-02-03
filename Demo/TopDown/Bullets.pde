@@ -5,11 +5,11 @@ public class Bullets {
         this.bullets = new ArrayList<Bullet>();
     }
     
-    public void add_bullet(Bullet bullet) {
+    public void addBullet(Bullet bullet) {
         this.bullets.add(bullet);
     }
     
-    public void remove_bullet(Bullet bullet) {
+    public void removeBullet(Bullet bullet) {
         this.bullets.remove(bullet);
     }
     

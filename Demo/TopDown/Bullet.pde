@@ -1,8 +1,8 @@
 public class Bullet extends GameObject{
-    PShape circle;
-    float speed;
-    PVector velocity;
-    Collider coll;
+    private PShape circle;
+    private float speed;
+    private PVector velocity;
+    private Collider coll;
 
     public Bullet(float x, float y, PVector vel) {
         super(x, y, BULLET_SIZE, BULLET_SIZE);
@@ -12,7 +12,7 @@ public class Bullet extends GameObject{
         this.coll = new Collider(x-this.w/2, y-this.h/2, this.w, this.h);
     }
   
-    public void  move() {
+    public void move() {
         this.position.add(this.velocity);
         this.circle.translate(this.velocity.x, this.velocity.y);
         this.coll.move(this.velocity.x, this.velocity.y);

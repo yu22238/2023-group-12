@@ -1,5 +1,5 @@
 public class Obstacle extends GameObject {
-    PShape rect;
+    private PShape rect;
     Collider coll;
 
     public Obstacle (float x, float y) {

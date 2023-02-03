@@ -1,14 +1,14 @@
 public class Player extends GameObject {
-    PShape rect;
-    // PImage img;
-    Collider coll;
-    PVector velocity;
-    float speed;
-    InputManager input;
+    private PShape rect;
+    //private PImage img;
+    public Collider coll;
+    private PVector velocity;
+    private float speed;
+    private InputManager input;
 
-    int fireRate;
-    int fireCnt;
-    boolean readyToFire;
+    private int fireRate;
+    private int fireCnt;
+    private boolean readyToFire;
 
     public Player (float x, float y, float w, float h) {
         super(x, y, w, h);
@@ -63,11 +63,11 @@ public class Player extends GameObject {
     public void fire() {
         if (input.getFire() && readyToFire) {
             this.readyToFire = false;
-            PVector bullet_vel = new PVector(mouseX - this.position.x - this.w/2, mouseY - this.position.y - this.h/2);
-            bullet_vel.normalize();
-            bullet_vel.setMag(20);
-            Bullet bullet = new Bullet(this.position.x+this.w/2,this.position.y+this.h/2, bullet_vel);
-            bullets.add_bullet(bullet);
+            PVector bulletVel = new PVector(mouseX - this.position.x - this.w/2, mouseY - this.position.y - this.h/2);
+            bulletVel.normalize();
+            bulletVel.setMag(20);
+            Bullet bullet = new Bullet(this.position.x+this.w/2,this.position.y+this.h/2, bulletVel);
+            bullets.addBullet(bullet);
         }
     }
 
