@@ -4,12 +4,11 @@ public class Player extends GameObject {
     public Collider coll;
     private PVector velocity;
     private float speed;
-    private InputManager input;
-
+    // fire related property
     private int fireRate;
     private int fireCnt;
     private boolean readyToFire;
-
+    // jump related property
     private float gravity;
     private boolean isOnGround;
     private float jumpForce;
@@ -22,7 +21,6 @@ public class Player extends GameObject {
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 10;
-        this.input = new InputManager();
         // fire related property
         this.fireRate = 10;
         this.fireCnt = 0;
@@ -63,15 +61,18 @@ public class Player extends GameObject {
         this.position.add(this.velocity);
         this.rect.translate(this.velocity.x, this.velocity.y);
         this.coll.move(this.velocity.x, this.velocity.y);
-
+        // collilsion dectection 
         for (Obstacle ob: obstacles.obstacles) {
             if(this.coll.collideWith(ob.coll)) {
+                // if collided with platform, then turn off gravity
+                // and set vertical velocity to zero
                 if (ob.getTag() == "Platform") {
                     cancelMove();
                     this.velocity.y = 0;
                     this.gravity = 0;
                     this.isOnGround = true;
                     return;
+                // otherwise only set horizontal velocity to zero
                 } else {
                     cancelMove();
                     this.velocity.x = 0;
@@ -102,7 +103,7 @@ public class Player extends GameObject {
     }
   
     public void fire() {
-        if (input.getFire() && readyToFire) {
+        if (mousePressed && readyToFire) {
             this.readyToFire = false;
             PVector bulletVel = new PVector(mouseX - this.position.x - this.w/2, mouseY - this.position.y - this.h/2);
             bulletVel.normalize();

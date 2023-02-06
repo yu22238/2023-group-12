@@ -13,5 +13,9 @@ public class Map {
         for (int i=3; i<6; i++) {
             obstacles.obstacles.add(new Obstacle(i*TILE_SIZE, 10*TILE_SIZE, "Platform"));
         }
+
+        for (int i=10; i<13; i++) {
+            obstacles.obstacles.add(new Obstacle(i*TILE_SIZE, 10*TILE_SIZE, "Platform"));
+        }
     }
 }
