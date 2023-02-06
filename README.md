@@ -33,8 +33,8 @@ Some game sprite images resources:
 ## Final Game Idea:
 
 Fireboy vs. Watergirl
-    - Add an enemy, what could triger it?
-    - Adding weapons
-    - Triger to switch roles
-    - Boogie traps, e.g. I Wanna
-    - Make it into a competition - Fireboy vs. Watergirl 
+- Add an enemy, what could triger it?
+- Adding weapons
+- Triger to switch roles
+- Boogie traps, e.g. I Wanna
+- Make it into a competition - Fireboy vs. Watergirl 
