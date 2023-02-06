@@ -32,3 +32,5 @@ Some game sprite images resources:
 - Temple Run
     - Change the theme, on water, on ice/snow?
     - Might be tricky to animate
+- Dinosaur Game
+    - Make it two player
