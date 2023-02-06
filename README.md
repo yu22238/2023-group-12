@@ -28,5 +28,7 @@ Some game sprite images resources:
     - Adding weapons
     - Triger to switch roles
     - Boogie traps, e.g. I Wanna
-    - Make it into a competition - Fireboy vs. Watergirl
-  
+    - Make it into a competition - Fireboy vs. Watergirl 
+- Temple Run
+    - Change the theme, on water, on ice/snow?
+    - Might be tricky to animate
