@@ -23,3 +23,10 @@ Some game sprite images resources:
 - Fruit Ninja
 - Stack
 - Pinball
+- Fireboy and Watergirl
+    - Add an enemy, what could triger it?
+    - Adding weapons
+    - Triger to switch roles
+    - Boogie traps, e.g. I Wanna
+    - Make it into a competition - Fireboy vs. Watergirl
+  
