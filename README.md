@@ -13,3 +13,13 @@
 Some game sprite images resources:
 - [spriters](https://www.spriters-resource.com/)
 - [pixel-frogs](https://pixelfrog-assets.itch.io/)
+
+## Game Ideas
+
+- Angry Birds
+- Flappy bird
+- Platformer games (e.g. Mario)
+- Cut The Rope
+- Fruit Ninja
+- Stack
+- Pinball
