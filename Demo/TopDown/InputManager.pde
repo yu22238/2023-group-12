@@ -38,4 +38,11 @@ public class InputManager {
         }
         return false;
     }
+
+    public boolean getJump() {
+        if (keyPressed && key == 'w') {
+            return true;
+        }
+        return false;
+    }
 }

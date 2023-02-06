@@ -3,7 +3,7 @@ public class Enemies {
     public Enemies () {
         this.enemies = new ArrayList<Enemy>();
         this.enemies.add(new Enemy(200, 200, 60, 60));
-        this.enemies.add(new Enemy(800, 750, 60, 60));
+        // this.enemies.add(new Enemy(800, 750, 60, 60));
         this.enemies.add(new Enemy(900, 350, 60, 60));
     }
 

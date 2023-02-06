@@ -10,8 +10,12 @@ public class Player extends GameObject {
     private int fireCnt;
     private boolean readyToFire;
 
+    private float gravity;
+    private boolean isOnGround;
+    private float jumpForce;
+
     public Player (float x, float y, float w, float h) {
-        super(x, y, w, h);
+        super(x, y, w, h, "Player");
         this.rect = createShape(RECT, x, y, w, h);
         // this.img = loadImage("filename");
         // this.img.resize(int(w), int(h));
@@ -19,16 +23,40 @@ public class Player extends GameObject {
         this.velocity = new PVector(0, 0);
         this.speed = 10;
         this.input = new InputManager();
-
+        // fire related property
         this.fireRate = 10;
         this.fireCnt = 0;
         this.readyToFire = true;
+        // jump related property
+        this.gravity = 1;
+        this.isOnGround = false;
+        this.jumpForce = 20;
     }
 
     public void movement() {
-        this.velocity.x = input.getHorizontalInput() * this.speed;
-        this.velocity.y = input.getVerticalInput() * this.speed;
+        this.velocity.y += this.gravity;
+        if (keyPressed) {
+            if (key == 'a' || key == 'A') {
+                this.velocity.x = -this.speed;
+            }
+            if (key == 'd' || key == 'D') {
+                this.velocity.x = this.speed;
+            }
+            if (key == 'w' || key == 'W') {
+                jump();
+            }
+        } else {
+            this.velocity.x = 0;
+        }
         move();
+    }
+
+    private void jump() {
+        if (this.isOnGround) {
+            this.velocity.y = -jumpForce;
+            this.gravity = 1;
+            this.isOnGround = false;
+        }
     }
 
     private void move() {
@@ -37,11 +65,24 @@ public class Player extends GameObject {
         this.coll.move(this.velocity.x, this.velocity.y);
 
         for (Obstacle ob: obstacles.obstacles) {
-            if(player.coll.collideWith(ob.coll)) {
-                cancelMove();
+            if(this.coll.collideWith(ob.coll)) {
+                if (ob.getTag() == "Platform") {
+                    cancelMove();
+                    this.velocity.y = 0;
+                    this.gravity = 0;
+                    this.isOnGround = true;
+                    return;
+                } else {
+                    cancelMove();
+                    this.velocity.x = 0;
+                    return;
+                }
             }
         }
+        this.isOnGround = false;
+        this.gravity = 1;
     }
+    
 
     private void cancelMove() {
         PVector tmpVel = new PVector(-this.velocity.x, -this.velocity.y);

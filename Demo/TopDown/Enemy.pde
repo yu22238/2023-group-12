@@ -3,7 +3,7 @@ public class Enemy extends GameObject {
     Collider coll;
 
     public Enemy (float x, float y, float w, float h) {
-        super(x, y, w, h);
+        super(x, y, w, h, "Enemy");
         this.rect = createShape(RECT, x, y, w, h);
         this.rect.setFill(color(255, 51, 51));
         this.coll = new Collider(x, y, w, h);

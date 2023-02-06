@@ -2,10 +2,10 @@ public class Bullet extends GameObject{
     private PShape circle;
     private float speed;
     private PVector velocity;
-    private Collider coll;
+    public Collider coll;
 
     public Bullet(float x, float y, PVector vel) {
-        super(x, y, BULLET_SIZE, BULLET_SIZE);
+        super(x, y, BULLET_SIZE, BULLET_SIZE, "Bullet");
         this.velocity = vel;
         this.circle = createShape(ELLIPSE, this.position.x, this.position.y, this.w, this.h);
         this.circle.setFill(color(255, 255, 0));
