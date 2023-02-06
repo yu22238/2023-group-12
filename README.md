@@ -24,13 +24,17 @@ Some game sprite images resources:
 - Stack
 - Pinball
 - Fireboy and Watergirl
-    - Add an enemy, what could triger it?
-    - Adding weapons
-    - Triger to switch roles
-    - Boogie traps, e.g. I Wanna
-    - Make it into a competition - Fireboy vs. Watergirl 
 - Temple Run
     - Change the theme, on water, on ice/snow?
     - Might be tricky to animate
 - Dinosaur Game
     - Make it two player
+
+## Final Game Idea:
+
+Fireboy vs. Watergirl
+    - Add an enemy, what could triger it?
+    - Adding weapons
+    - Triger to switch roles
+    - Boogie traps, e.g. I Wanna
+    - Make it into a competition - Fireboy vs. Watergirl 
