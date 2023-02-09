@@ -43,8 +43,8 @@ public class Collider {
     }
     // check if this collider collided with the point
     public boolean collidePoint(PVector point) {
-        if (point.x > this.topLeft.x && point.x < this.topRight.x) {
-            if (point.y > this.topLeft.y && point.y < this.bottomLeft.y) {
+        if (point.x >= this.topLeft.x && point.x <= this.topRight.x) {
+            if (point.y >= this.topLeft.y && point.y <= this.bottomLeft.y) {
                 return true;
             }
         }

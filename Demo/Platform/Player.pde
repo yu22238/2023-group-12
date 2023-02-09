@@ -4,7 +4,7 @@ public class Player extends GameObject {
     public Collider coll;
     private PVector velocity;
     private float speed;
-    // fire related property
+    // attack related property
     private int fireRate;
     private int fireCnt;
     private boolean readyToFire;
@@ -58,32 +58,45 @@ public class Player extends GameObject {
     }
 
     private void move() {
+        // move to new position
         this.position.add(this.velocity);
         this.rect.translate(this.velocity.x, this.velocity.y);
         this.coll.move(this.velocity.x, this.velocity.y);
-        // collilsion dectection 
-        for (Obstacle ob: obstacles.obstacles) {
-            if(this.coll.collideWith(ob.coll)) {
-                // if collided with platform, then turn off gravity
-                // and set vertical velocity to zero
-                if (ob.getTag() == "Platform") {
+        // check if the player collider's four corner collide with any obtacle
+        boolean topLeftColl = collisionCheck(this.coll.topLeft, "topLeft");
+        boolean topRightColl = collisionCheck(this.coll.topRight, "topRight");
+        boolean bottomLeftColl = collisionCheck(this.coll.bottomLeft, "bottomLeft");
+        boolean bottomRightColl = collisionCheck(this.coll.bottomRight, "bottomRight");
+
+        if (topLeftColl || topRightColl || bottomLeftColl || bottomRightColl) {
+            return;
+        }
+        // if no collision, then player is in air
+        this.isOnGround = false;
+        this.gravity = 1;
+    }
+
+    private boolean collisionCheck(PVector cornerPos, String cornerName) {
+        int row = int(cornerPos.y / TILE_SIZE);
+        int col = int(cornerPos.x / TILE_SIZE);
+        Tile tile = tileMap.getTileMap()[row][col];
+
+        if (this.coll.collideWith(tile.coll)) {
+            if (tile.getTag() == "Obstacle") {
+                if (cornerName == "topRight" || cornerName == "topLeft") {
+                    cancelMove();
+                    this.velocity.y = 1;
+                } else {
                     cancelMove();
                     this.velocity.y = 0;
                     this.gravity = 0;
                     this.isOnGround = true;
-                    return;
-                // otherwise only set horizontal velocity to zero
-                } else {
-                    cancelMove();
-                    this.velocity.x = 0;
-                    return;
                 }
-            }
+                return true;
+            } 
         }
-        this.isOnGround = false;
-        this.gravity = 1;
+        return false;
     }
-    
 
     private void cancelMove() {
         PVector tmpVel = new PVector(-this.velocity.x, -this.velocity.y);
