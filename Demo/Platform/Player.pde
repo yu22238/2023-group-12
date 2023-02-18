@@ -1,8 +1,6 @@
 public class Player extends GameObject {
     private PShape rect;
-    //private PImage img;
     public Collider coll;
-    private PVector velocity;
     private float speed;
     // attack related property
     private int fireRate;
@@ -13,11 +11,14 @@ public class Player extends GameObject {
     private boolean isOnGround;
     private float jumpForce;
 
+    private StateMachine stateMachine;
+    private Animator animator;
+
     public Player (float x, float y, float w, float h) {
         super(x, y, w, h, "Player");
-        this.rect = createShape(RECT, x, y, w, h);
-        // this.img = loadImage("filename");
-        // this.img.resize(int(w), int(h));
+        // this.rect = createShape(RECT, x, y, w, h);
+        // this.image = loadImage("filename");
+        // this.image.resize(int(w), int(h));
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 10;
@@ -29,6 +30,13 @@ public class Player extends GameObject {
         this.gravity = 1;
         this.isOnGround = false;
         this.jumpForce = 20;
+
+        this.stateMachine = new StateMachine(this);
+        this.animator = new Animator(this, "Assets/Player");
+        this.animator.setAnimation(State.IDLE, "Idle", 26, int(w), int(h), true);
+        this.animator.setAnimation(State.FALL, "Fall", 2, int(w), int(h), false);
+        this.animator.setAnimation(State.JUMP, "Jump", 5, int(w), int(h), false);
+        this.animator.setAnimation(State.WALK, "Run", 14, int(w), int(h), true);
     }
 
     public void movement() {
@@ -47,6 +55,9 @@ public class Player extends GameObject {
             this.velocity.x = 0;
         }
         move();
+        if (this.velocity.x < 0) {
+            
+        }
     }
 
     private void jump() {
@@ -60,7 +71,7 @@ public class Player extends GameObject {
     private void move() {
         // move to new position
         this.position.add(this.velocity);
-        this.rect.translate(this.velocity.x, this.velocity.y);
+        // this.rect.translate(this.velocity.x, this.velocity.y);
         this.coll.move(this.velocity.x, this.velocity.y);
         // check if the player collider's four corner collide with any obtacle
         boolean topLeftColl = collisionCheck(this.coll.topLeft, "topLeft");
@@ -101,7 +112,7 @@ public class Player extends GameObject {
     private void cancelMove() {
         PVector tmpVel = new PVector(-this.velocity.x, -this.velocity.y);
         this.position.add(tmpVel);
-        this.rect.translate(tmpVel.x, tmpVel.y);
+        // this.rect.translate(tmpVel.x, tmpVel.y);
         this.coll.move(tmpVel.x, tmpVel.y);
     }
 
@@ -130,10 +141,12 @@ public class Player extends GameObject {
         movement();
         checkFire();
         fire();
+        stateMachine.updateState();
+        animator.playAnimation();
     }
 
     public void display() {
-        shape(this.rect);  
-        // image(this.img, this.position.x, this.position.y);  
+        // shape(this.rect);  
+        image(this.image, this.position.x, this.position.y);  
     }
 }

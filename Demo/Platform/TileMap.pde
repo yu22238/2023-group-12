@@ -22,8 +22,6 @@ public class TileMap {
         this.rowSize = this.charMap.length;
         this.colSize = this.charMap[0].length;
         this.tileMap = new Tile[this.rowSize][this.colSize];
-        System.out.println(rowSize);
-        System.out.println(colSize);
         makeTileMap();
     }
 
