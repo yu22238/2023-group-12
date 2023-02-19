@@ -44,6 +44,12 @@ Fireboy and Watergirl
 
 o Describe your game, what is based on, what makes it novel?
 
+Enter a world of excitement and intrigue with our 2-player game, which takes inspiration from the wildly popular online game Fireboy and Watergirl. Get ready to embark on an epic journey through a mystical forest temple, filled with intricate puzzles and thrilling adventure.
+
+With this game, players can look forward to testing their problem-solving skills as they work together to overcome obstacles and unlock new challenges. As they navigate through the twisting paths and hidden passageways of the temple, they'll need to utilize their unique strengths and collaborate with each other to reach their ultimate goal - escaping the temple together! With every level presenting new challenges and obstacles, players will need to stay on their toes and think quickly if they want to make it out in time.
+
+In a bid to survive the treacherous forest temple, the dynamic duo of Fireboy and Watergirl must heed one crucial rule: stay in their respective lanes! With Fireboy vulnerable to water and Watergirl equally susceptible to fire, the stakes are high as they navigate through the everchanging environment. However, escaping the temple is not the only aim of the game, players must also keep their eyes peeled for diamonds. Scattered throughout the temple, these precious gems serve as the key to success in the game. The more diamonds players collect, the higher their score will be at the end of the game.
+
 ## Requirements (15% ~750 words)
 
 o Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
