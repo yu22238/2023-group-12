@@ -40,6 +40,9 @@ Fireboy and Watergirl
 - Make it into a competition - Fireboy vs. Watergirl 
 - Add a time limit, the temple slowly filling up with water
 
+## Paper Prototyping Video
+https://github.com/UoB-COMSM0110/2023-group-12/blob/f13e531b67bb647df3174490a57dc1f48d43f8c1/Group12-paperprototyping.mp4
+
 ## Introduction (5% ~250 words)
 
 o Describe your game, what is based on, what makes it novel?
