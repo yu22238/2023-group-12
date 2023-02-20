@@ -1,3 +1,5 @@
+// used to manage state transition for player and enemy
+
 public class StateMachine {
     private State state;
     private GameObject parent;

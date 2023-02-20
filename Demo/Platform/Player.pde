@@ -1,5 +1,4 @@
 public class Player extends GameObject {
-    private PShape rect;
     public Collider coll;
     private float speed;
     // attack related property
@@ -16,9 +15,6 @@ public class Player extends GameObject {
 
     public Player (float x, float y, float w, float h) {
         super(x, y, w, h, "Player");
-        // this.rect = createShape(RECT, x, y, w, h);
-        // this.image = loadImage("filename");
-        // this.image.resize(int(w), int(h));
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 10;
@@ -30,7 +26,7 @@ public class Player extends GameObject {
         this.gravity = 1;
         this.isOnGround = false;
         this.jumpForce = 20;
-
+        // set state machine and animation
         this.stateMachine = new StateMachine(this);
         this.animator = new Animator(this, "Assets/Player");
         this.animator.setAnimation(State.IDLE, "Idle", 26, int(w), int(h), true);
@@ -38,8 +34,10 @@ public class Player extends GameObject {
         this.animator.setAnimation(State.JUMP, "Jump", 5, int(w), int(h), false);
         this.animator.setAnimation(State.WALK, "Run", 14, int(w), int(h), true);
     }
-
+    // handle input, set the velocity based on input,
+    // then move player based on velocity
     public void movement() {
+        // the vertical velocity is constantly affected by gravity
         this.velocity.y += this.gravity;
         if (keyPressed) {
             if (key == 'a' || key == 'A') {
@@ -54,10 +52,8 @@ public class Player extends GameObject {
         } else {
             this.velocity.x = 0;
         }
+        // actually move player after finishing setting up velocity
         move();
-        if (this.velocity.x < 0) {
-            
-        }
     }
 
     private void jump() {
@@ -69,9 +65,9 @@ public class Player extends GameObject {
     }
 
     private void move() {
-        // move to new position
+        // move to new position based on current velocity
+        // don't forget to move collider along with the player
         this.position.add(this.velocity);
-        // this.rect.translate(this.velocity.x, this.velocity.y);
         this.coll.move(this.velocity.x, this.velocity.y);
         // check if the player collider's four corner collide with any obtacle
         boolean topLeftColl = collisionCheck(this.coll.topLeft, "topLeft");
@@ -94,9 +90,11 @@ public class Player extends GameObject {
 
         if (this.coll.collideWith(tile.coll)) {
             if (tile.getTag() == "Obstacle") {
+                // player hit the platform from below
                 if (cornerName == "topRight" || cornerName == "topLeft") {
                     cancelMove();
                     this.velocity.y = 1;
+                // player landed on platform
                 } else {
                     cancelMove();
                     this.velocity.y = 0;
@@ -109,10 +107,11 @@ public class Player extends GameObject {
         return false;
     }
 
+    // if the expected new position in next frame is blocked by an obstacle, then call this method to 
+    // reset the position back to origin position
     private void cancelMove() {
         PVector tmpVel = new PVector(-this.velocity.x, -this.velocity.y);
         this.position.add(tmpVel);
-        // this.rect.translate(tmpVel.x, tmpVel.y);
         this.coll.move(tmpVel.x, tmpVel.y);
     }
 
@@ -143,10 +142,5 @@ public class Player extends GameObject {
         fire();
         stateMachine.updateState();
         animator.playAnimation();
-    }
-
-    public void display() {
-        // shape(this.rect);  
-        image(this.image, this.position.x, this.position.y);  
     }
 }

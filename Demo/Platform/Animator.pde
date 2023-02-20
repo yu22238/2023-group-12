@@ -1,3 +1,5 @@
+// used to manage animation transition for player and enemies
+
 public class Animator {
     GameObject parent;
     HashMap<State, Animation> animations;
@@ -19,6 +21,7 @@ public class Animator {
         return this.animations.get(state);
     }
 
+    // play corresponding animation clip based on the state of its parent
     public void playAnimation() {
         Animation anim = this.animations.get(this.parent.getState());
         if (this.currentAnimationState != this.parent.getState()) {

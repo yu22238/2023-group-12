@@ -1,7 +1,6 @@
 public class Bullet extends GameObject{
     private PShape circle;
     private float speed;
-    private PVector velocity;
     public Collider coll;
 
     public Bullet(float x, float y, PVector vel) {

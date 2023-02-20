@@ -1,3 +1,5 @@
+// for constructing animation clip
+
 public class Animation {
     private ArrayList<PImage> frames = new ArrayList<PImage>();
     private String filePath;
@@ -27,9 +29,7 @@ public class Animation {
         }
     }
 
-    public ArrayList<PImage> getFrames() {
-        return this.frames;
-    }
+    public ArrayList<PImage> getFrames() { return this.frames; }
 
     public int getFrameNum() { return this.frameNum; }
 
