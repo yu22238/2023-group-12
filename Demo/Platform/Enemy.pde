@@ -1,7 +1,7 @@
 // TODO
 
 public class Enemy extends Character {
-    PShape rect;
+    // PShape rect;
 
     public Enemy (float x, float y, float w, float h) {
         super(x, y, w, h, "Enemy");
