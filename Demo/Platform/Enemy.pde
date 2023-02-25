@@ -1,14 +1,18 @@
 // TODO
 
-public class Enemy extends GameObject {
+public class Enemy extends Character {
     PShape rect;
-    Collider coll;
 
     public Enemy (float x, float y, float w, float h) {
         super(x, y, w, h, "Enemy");
-        this.rect = createShape(RECT, x, y, w, h);
-        this.rect.setFill(color(255, 51, 51));
+        setImage(loadImage("Assets/Enemy1/1.png"));
+        this.image.resize((int)w, (int)h);
         this.coll = new Collider(x, y, w, h);
+    }
+
+    protected void movement() {
+        this.velocity.y += this.gravity;
+        move();
     }
 
     public boolean isHit() {
@@ -27,10 +31,7 @@ public class Enemy extends GameObject {
     }
 
     public void update() {
-        isDead();
-    }
-
-    public void display() {
-        shape(this.rect);
+        movement();
+        // isDead();
     }
 }

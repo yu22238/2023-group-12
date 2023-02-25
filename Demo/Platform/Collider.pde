@@ -1,6 +1,5 @@
 // class for collision detection
 // instantiate this class for game objects that interact with other game objects
-// eg. instantiate 
 
 public class Collider {
     public PVector position;
