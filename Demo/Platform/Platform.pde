@@ -8,7 +8,7 @@ TileMap tileMap;
 
 void setup() {
     size(1600, 896);
-    player = new Player(width/2, height/2 + 300, 60, 60);
+    player = new Player(width/2-100, height/2 + 200, 60, 60);
     enemies = new Enemies();
     bullets = new Bullets();
     tileMap = new TileMap();
