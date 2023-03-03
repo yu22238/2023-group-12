@@ -24,11 +24,11 @@ public class Enemy extends Character {
         return false;
     }
 
-    //public void isDead() {
-    //    if (isHit()) {
-    //        this.rect.setVisible(false);
-    //    }
-    //}
+    // public void isDead() {
+    //     if (isHit()) {
+    //         this.rect.setVisible(false);
+    //     }
+    // }
 
     public void update() {
         movement();

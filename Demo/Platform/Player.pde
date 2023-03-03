@@ -11,7 +11,7 @@ public class Player extends Character {
         super(x, y, w, h, "Player");
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
-        this.speed = 10;
+        this.speed = 6;
         // fire related property
         this.fireRate = 10;
         this.fireCnt = 0;
