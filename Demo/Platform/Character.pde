@@ -12,12 +12,25 @@ public abstract class Character extends GameObject {
 
     protected abstract void movement();
 
-    protected void move() {
-        // move to new position based on current velocity
-        // don't forget to move collider along with the character
-        this.position.add(this.velocity);
-        this.coll.move(this.velocity.x, this.velocity.y);
-        // check if the character collider's four corner collide with any obtacle
+    private void moveX() {
+        this.position.add(new PVector(this.velocity.x, 0));
+        this.coll.move(this.velocity.x, 0);
+
+        boolean topLeftColl = collisionCheck(this.coll.topLeft);
+        boolean topRightColl = collisionCheck(this.coll.topRight);
+        boolean bottomLeftColl = collisionCheck(this.coll.bottomLeft);
+        boolean bottomRightColl = collisionCheck(this.coll.bottomRight);
+
+        if (topLeftColl || topRightColl || bottomLeftColl || bottomRightColl) {
+            cancelXMove();
+            return;
+        }
+    }
+
+    private void moveY() {
+        this.position.add(new PVector(0, this.velocity.y));
+        this.coll.move(0, this.velocity.y);
+
         boolean topLeftColl = collisionCheck(this.coll.topLeft);
         boolean topRightColl = collisionCheck(this.coll.topRight);
         boolean bottomLeftColl = collisionCheck(this.coll.bottomLeft);
@@ -25,41 +38,26 @@ public abstract class Character extends GameObject {
 
         // character hit the platform from below
         if ((topLeftColl || topRightColl) && (!bottomLeftColl && !bottomRightColl)) {
-            cancelMove();
+            cancelYMove();
             this.velocity.y = 1;
             return;
         }
         // character landed on platform
         if ((bottomLeftColl || bottomRightColl) && (!topLeftColl && !topRightColl)) {
-            cancelMove();
+            cancelYMove();
             this.velocity.y = 0;
             this.gravity = 0;
             this.isOnGround = true;
             return;
         }
-        // character hit obstacle from left
-        if ((topLeftColl && bottomLeftColl) && (!topRightColl && !bottomRightColl)) {
-            cancelXMove();
-            this.velocity.x = 0;
-            return;
-        }
-        // character hit obstacle from right
-        if ((topRightColl && bottomRightColl) && (!topLeftColl && !bottomLeftColl)) {
-            cancelXMove();
-            this.velocity.x = 0;
-            return;
-        }
-        if ((topLeftColl && bottomLeftColl && bottomRightColl) || (topRightColl && bottomRightColl && bottomLeftColl)) {
-            cancelMove();
-            this.velocity.y = 0;
-            this.gravity = 0;
-            this.isOnGround = true;
-            return;
-        } 
-
         // if no collision, then character is in air
         this.isOnGround = false;
         this.gravity = 1;
+    }
+
+    protected void move() {
+        moveX();
+        moveY();
     }
 
     protected boolean collisionCheck(PVector cornerPos) {
