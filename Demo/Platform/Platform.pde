@@ -6,21 +6,18 @@ Enemies enemies;
 Bullets bullets;
 TileMap tileMap;
 
+Game game;
+
 void setup() {
     size(1600, 896);
-    player = new Player(width/2-100, height/2 + 200, 60, 60);
-    enemies = new Enemies();
-    bullets = new Bullets();
-    tileMap = new TileMap();
+    game = new Game();
 }
 
 void draw() {
     background(51);
+    // game.display();
     tileMap.display();
-    player.update();
     player.display();
-    bullets.update();
     bullets.display();
-    enemies.update();
     enemies.display();
 }
