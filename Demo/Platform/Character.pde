@@ -52,7 +52,7 @@ public abstract class Character extends GameObject {
         }
         // if no collision, then character is in air
         this.isOnGround = false;
-        this.gravity = 1;
+        this.gravity = 0.5;
     }
 
     protected void move() {

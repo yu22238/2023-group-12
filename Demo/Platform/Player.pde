@@ -11,13 +11,13 @@ public class Player extends Character {
         super(x, y, w, h, "Player");
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
-        this.speed = 6;
+        this.speed = 3;
         // fire related property
         this.fireRate = 10;
         this.fireCnt = 0;
         this.readyToFire = true;
         // jump related property
-        this.jumpForce = 20;
+        this.jumpForce = 15;
         // set state machine and animation
         this.stateMachine = new StateMachine(this);
         this.animator = new Animator(this, "Assets/Player");
@@ -51,7 +51,7 @@ public class Player extends Character {
     private void jump() {
         if (this.isOnGround) {
             this.velocity.y = -jumpForce;
-            this.gravity = 1;
+            this.gravity = 0.5;
             this.isOnGround = false;
         }
     }
