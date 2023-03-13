@@ -70,12 +70,23 @@ o Describe implementation of your game, in particular highlighting the three are
 
 o One qualitative evaluation (your choice)
 
-Notes from Think Aloud Evaluation:
+Think Aloud Evaluation:
 - Need to deal with bullets off screen, deleting them when they leave the screen so that the game does not glitch
 - Need to add instructions to make it clear which keys to use to move and how to shoot
 - Using space to jump? More clear?
 - Cannot press W&A at the same time
 - Can not distinguish between player and enemies
+
+Heuristics Evaluation:
+1. Visibility of system status
+   - Can not distinguish between player and enemies
+2. Consistency and standards
+   - Using space to jump?
+3. Error prevention
+   - Need to deal with bullets off screen, deleting them when they leave the screen so that the game does not glitch
+   - Cannot press W&A at the same time
+4. Help and documentation
+   - Need to add instructions to make it clear which keys to use to move and how to shoot
 
 o One quantitative evaluation (of your choice)
 
@@ -91,3 +102,4 @@ o Reflect on project as a whole. Lessons learned. Reflect on challenges. Future 
 
 ## Individual contribution. 
 Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent.
+
