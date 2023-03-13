@@ -60,6 +60,7 @@ o Use case diagrams, user stories. Early stages design. Ideation process. How di
 ## Design (15% ~750 words)
 
 o System architecture. Class diagrams, behavioural diagrams.
+![Class Diagram](./Demo/ClassDiagram.png)
 
 ## Implementation (15% ~750 words)
 
@@ -68,6 +69,13 @@ o Describe implementation of your game, in particular highlighting the three are
 ## Evaluation (15% ~750 words)
 
 o One qualitative evaluation (your choice)
+
+Notes from Think Aloud Evaluation:
+- Need to deal with bullets off screen, deleting them when they leave the screen so that the game does not glitch
+- Need to add instructions to make it clear which keys to use to move and how to shoot
+- Using space to jump? More clear?
+- Cannot press W&A at the same time
+- Can not distinguish between player and enemies
 
 o One quantitative evaluation (of your choice)
 
