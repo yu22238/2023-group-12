@@ -14,7 +14,7 @@ Game game;
 void setup() {
     stage = 1;
     size(1600, 896);
-    startscreen = loadImage("lava.jpg");
+    startscreen = loadImage("Assets/lava.png");
     image(startscreen, 0, 0, 1600, 896);
     
     game = new Game();
@@ -23,7 +23,7 @@ void setup() {
 void draw() {
   if(stage==1){
     textAlign(CENTER);
-    mono = loadFont("font123.vlw");
+    mono = loadFont("Assets/font123.vlw");
     textFont(mono);
     textSize(50);
     text("FIREBOY & WATERGIRL", 700, 300); 
