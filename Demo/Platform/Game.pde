@@ -46,7 +46,7 @@ class Game implements Runnable {
             // UPS counting
             if (millis() - lastCheck >= 1000) {
                 lastCheck = millis();
-                println("UPS: " + updates);
+                // println("UPS: " + updates);
                 updates = 0;
             }
         }

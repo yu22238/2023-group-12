@@ -1,12 +1,12 @@
 // used to manage animation transition for player and enemies
 
 public class Animator {
-    GameObject parent;
+    Character parent;
     HashMap<State, Animation> animations;
     String baseFilePath;
     State currentAnimationState;
 
-    public Animator(GameObject obj, String baseFilePath) {
+    public Animator(Character obj, String baseFilePath) {
         this.parent = obj;
         this.animations = new HashMap<State, Animation>();
         this.baseFilePath = baseFilePath;
@@ -24,6 +24,7 @@ public class Animator {
     // play corresponding animation clip based on the state of its parent
     public void playAnimation() {
         Animation anim = this.animations.get(this.parent.getState());
+        if (anim == null) { return; }
         if (this.currentAnimationState != this.parent.getState()) {
             anim.setCurrentFrameIdx(0);
             this.currentAnimationState = this.parent.getState();

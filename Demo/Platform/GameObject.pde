@@ -26,7 +26,7 @@ public abstract class GameObject {
 
     public PVector getVelocity() { return this.velocity; }
     public State getState() { return this.state; }
-    public void setState(State state) { this.state = state; }
+    // public void setState(State state) { this.state = state; }
     public String getTag() { return this.tag; }
     public PImage getImage() { return this.image; }
     public void setImage(PImage img) { this.image = img; }

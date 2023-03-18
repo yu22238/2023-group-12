@@ -2,22 +2,29 @@
 
 public class StateMachine {
     private State state;
-    private GameObject parent;
+    private Character parent;
 
-    public StateMachine(GameObject obj) {
+    public StateMachine(Character obj) {
         this.parent = obj;
-        this.parent.setState(State.IDLE);
+        this.parent.setState(State.IDLE_R);
     }
 
     public void updateState() {
-        if (parent.getVelocity().x == 0 && parent.getVelocity().y == 0) {
-            parent.setState(State.IDLE);
+        if (parent.isDead()) {
+            if (parent.facing == 1) { parent.setState(State.DEAD_R); }
+            if (parent.facing == -1) { parent.setState(State.DEAD_L); }
+        } else if (parent.getVelocity().x == 0 && parent.getVelocity().y == 0) {
+            if (parent.facing == 1) { parent.setState(State.IDLE_R); }
+            if (parent.facing == -1) { parent.setState(State.IDLE_L); }
         } else if (parent.getVelocity().y > 0) {
-            parent.setState(State.FALL);
+            if (parent.facing == 1) { parent.setState(State.FALL_R); }
+            if (parent.facing == -1) { parent.setState(State.FALL_L); }
         } else if (parent.getVelocity().y < 0) {
-            parent.setState(State.JUMP);
+            if (parent.facing == 1) { parent.setState(State.JUMP_R); }
+            if (parent.facing == -1) { parent.setState(State.JUMP_L); }
         } else if (parent.getVelocity().x != 0) {
-            parent.setState(State.WALK);
+            if (parent.facing == 1) { parent.setState(State.WALK_R); }
+            if (parent.facing == -1) { parent.setState(State.WALK_L); }
         }
     }
 }
