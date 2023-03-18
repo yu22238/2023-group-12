@@ -44,7 +44,7 @@ void draw() {
     player.display();
     bullets.display();
     enemies.display();
-    
+    bullets.deleteOffScreen();
   }
   
 }

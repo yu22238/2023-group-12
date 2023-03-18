@@ -13,7 +13,7 @@ public class Bullets {
         this.bullets.remove(bullet);
     }
 
-    private void deleteOffScreen() {
+    public void deleteOffScreen() {
         this.bullets.removeIf(bullet -> bullet.position.x > width || bullet.position.x < 0 || bullet.position.y < 0 || bullet.position.y > height);
     }
     
@@ -27,6 +27,6 @@ public class Bullets {
         for (Bullet bullet: this.bullets) {
             bullet.display();
         }
-        deleteOffScreen();
+        // deleteOffScreen();
     }
 }
