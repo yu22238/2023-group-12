@@ -7,7 +7,7 @@ public class Animation {
     private boolean loop;
     private float w, h;
     private float frameIdx = 0;
-    private float playSpeed = 0.25;
+    private float playSpeed = 0.4;
     private boolean enterAnimation = true;
 
     public Animation (String filePath, int frameNum, float w, float h, boolean loop) {

@@ -12,8 +12,9 @@ public class Player extends Character {
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 3;
+        this.health = 10;
         // fire related property
-        this.fireRate = 10;
+        this.fireRate = 20;
         this.fireCnt = 0;
         this.readyToFire = true;
         // jump related property
@@ -21,10 +22,14 @@ public class Player extends Character {
         // set state machine and animation
         this.stateMachine = new StateMachine(this);
         this.animator = new Animator(this, "Assets/Player");
-        this.animator.setAnimation(State.IDLE, "Idle", 26, int(w), int(h), true);
-        this.animator.setAnimation(State.FALL, "Fall", 2, int(w), int(h), false);
-        this.animator.setAnimation(State.JUMP, "Jump", 5, int(w), int(h), false);
-        this.animator.setAnimation(State.WALK, "Run", 14, int(w), int(h), true);
+        this.animator.setAnimation(State.IDLE_L, "Idle_L", 26, int(w), int(h), true);
+        this.animator.setAnimation(State.IDLE_R, "Idle_R", 26, int(w), int(h), true);
+        this.animator.setAnimation(State.FALL_L, "Fall_L", 2, int(w), int(h), false);
+        this.animator.setAnimation(State.FALL_R, "Fall_R", 2, int(w), int(h), false);
+        this.animator.setAnimation(State.JUMP_L, "Jump_L", 5, int(w), int(h), false);
+        this.animator.setAnimation(State.JUMP_R, "Jump_R", 5, int(w), int(h), false);
+        this.animator.setAnimation(State.WALK_L, "Run_L", 14, int(w), int(h), true);
+        this.animator.setAnimation(State.WALK_R, "Run_R", 14, int(w), int(h), true);
     }
     // handle input, set the velocity based on input,
     // then move player based on velocity
@@ -46,6 +51,7 @@ public class Player extends Character {
         }
         // actually move player after finishing setting up velocity
         move();
+        updateFacing();
     }
 
     private void jump() {
@@ -77,11 +83,15 @@ public class Player extends Character {
         }
     }
 
+    public boolean isDead() {
+        return false;
+    }
+
     public void update() {
         movement();
         checkFire();
         fire();
         stateMachine.updateState();
-        animator.playAnimation();
+        // animator.playAnimation();
     }
 }

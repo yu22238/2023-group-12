@@ -1,13 +1,16 @@
 public abstract class Character extends GameObject {
     public Collider coll;
+    protected int health;
     protected float gravity = 1;
     protected boolean isOnGround = false;
     protected StateMachine stateMachine;
     protected Animator animator;
+    protected int facing;
 
     public Character (float x, float y, float w, float h, String tag) {
         super(x, y, w, h, tag);
         this.velocity = new PVector(0, 0);
+        this.facing = 1;
     }
 
     protected abstract void movement();
@@ -89,5 +92,24 @@ public abstract class Character extends GameObject {
         PVector tmpVel = new PVector(0, -this.velocity.y);
         this.position.add(tmpVel);
         this.coll.move(tmpVel.x, tmpVel.y);
+    }
+
+    public abstract boolean isDead();
+
+    protected void updateFacing() {
+        if (this.velocity.x > 0) {
+            this.facing = 1;
+        } else if (this.velocity.x < 0) {
+            this.facing = -1;
+        }
+    }
+
+    protected void setState(State state) {
+        this.state = state; 
+    }
+
+    public void display() {
+        animator.playAnimation();
+        image(this.image, this.position.x, this.position.y);
     }
 }
