@@ -8,7 +8,7 @@ public class Enemy extends Character {
 
     public Enemy (float x, float y, float w, float h) {
         super(x, y, w, h, "Enemy");
-        this.health = 5;
+        this.health = ENEMY_HEALTH;
         setImage(loadImage("Assets/Enemy1/1.png"));
         this.image.resize((int)w, (int)h);
         this.coll = new Collider(x, y, w, h);

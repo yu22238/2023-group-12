@@ -4,6 +4,9 @@ PImage startscreen;
 PFont mono;
 int stage;
 
+int PLAYER_HEALTH = 10;
+int ENEMY_HEALTH = 5;
+
 Player player;
 Enemies enemies;
 Bullets bullets;
