@@ -7,12 +7,15 @@ public class Player extends Character {
     // jump related property
     private float jumpForce;
 
+    private int safeThreshold = 20;
+    private int safeCounter = 1;
+
     public Player (float x, float y, float w, float h) {
         super(x, y, w, h, "Player");
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 3;
-        this.health = 10;
+        this.health = PLAYER_HEALTH;
         // fire related property
         this.fireRate = 20;
         this.fireCnt = 0;
@@ -30,6 +33,8 @@ public class Player extends Character {
         this.animator.setAnimation(State.JUMP_R, "Jump_R", 5, int(w), int(h), false);
         this.animator.setAnimation(State.WALK_L, "Run_L", 14, int(w), int(h), true);
         this.animator.setAnimation(State.WALK_R, "Run_R", 14, int(w), int(h), true);
+        this.animator.setAnimation(State.DEAD_L, "Dead_L", 6, int(w), int(h), false);
+        this.animator.setAnimation(State.DEAD_R, "Dead_R", 6, int(w), int(h), false);
     }
     // handle input, set the velocity based on input,
     // then move player based on velocity
@@ -49,6 +54,7 @@ public class Player extends Character {
         } else {
             this.velocity.x = 0;
         }
+        if (isDead()) { return; }
         // actually move player after finishing setting up velocity
         move();
         updateFacing();
@@ -73,7 +79,7 @@ public class Player extends Character {
     }
   
     public void fire() {
-        if (mousePressed && readyToFire) {
+        if (mousePressed && readyToFire && !isDead()) {
             this.readyToFire = false;
             PVector bulletVel = new PVector(mouseX - this.position.x - this.w/2, mouseY - this.position.y - this.h/2);
             bulletVel.normalize();
@@ -83,7 +89,28 @@ public class Player extends Character {
         }
     }
 
+    public boolean isHit() {
+        if (this.safeCounter < this.safeThreshold) { 
+            this.safeCounter++;
+            return false; 
+        } 
+        for (Enemy enemy: enemies.enemies) {
+            if (enemy.isDead()) { continue; }
+            if (this.coll.collideWith(enemy.coll)) {
+                this.safeCounter = 0;
+                if (this.health > 0) {
+                    this.health--;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isDead() {
+        if (this.health <= 0) {
+            return true;
+        }
         return false;
     }
 
@@ -91,6 +118,7 @@ public class Player extends Character {
         movement();
         checkFire();
         fire();
+        isHit();
         stateMachine.updateState();
         // animator.playAnimation();
     }
