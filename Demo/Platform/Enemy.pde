@@ -48,7 +48,7 @@ public class Enemy extends Character {
     }
 
     public boolean isHit() {
-        for (Bullet bullet: bullets.bullets) {
+        for (Bullet bullet: game.bullets.bullets) {
             if (this.coll.collideWith(bullet.coll)) {
                 if (this.health > 0) {
                     this.health--;
