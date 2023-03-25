@@ -2,6 +2,18 @@ class Game implements Runnable {
     private final int UPS_SET = 120; 
     private Thread gameThread;
 
+    public boolean gameStart = false;
+
+    public Player player;
+    public Player player2;
+    public Enemies enemies;
+    public Bullets bullets;
+    public TileMap tileMap;
+
+    public StartScreen startScreen = new StartScreen();
+
+    public int stage = 1;
+
     public Game() {
         initClasses();
         gameThread = new Thread(this);
@@ -9,20 +21,37 @@ class Game implements Runnable {
     }
 
     private void initClasses() {
-        player = new Player(width/2-100, height/2 + 200, 60, 60);
+        player = new Player(width/2-100, height/2 + 200, 60, 60, inputManager1);
+        player2 = new Player(width/2-100, height/2 + 200, 60, 60, inputManager2);
         enemies = new Enemies();
         bullets = new Bullets();
         tileMap = new TileMap();
     }
 
     public void update() {
-        player.update();
-        bullets.update();
-        enemies.update();
+        if (this.stage == 1 && keyPressed) {
+            this.stage = 2;
+            this.gameStart = true;
+        }
+        if (this.gameStart) {
+            player.update();
+            player2.update();
+            bullets.update();
+            enemies.update();
+        }
     }
 
     public void display() {
-
+        if (this.stage == 1) {
+            startScreen.display();
+        }
+        if (this.stage == 2) {
+            tileMap.display();
+            player.display();
+            player2.display();
+            bullets.display();
+            enemies.display();
+        }
     }
     
     public void run() {

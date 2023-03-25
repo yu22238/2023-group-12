@@ -66,7 +66,7 @@ public abstract class Character extends GameObject {
     protected boolean collisionCheck(PVector cornerPos) {
         int row = int(cornerPos.y / TILE_SIZE);
         int col = int(cornerPos.x / TILE_SIZE);
-        Tile tile = tileMap.getTileMap()[row][col];
+        Tile tile = game.tileMap.getTileMap()[row][col];
 
         if (this.coll.collideWith(tile.coll)) {
             if (tile.getTag() == "Obstacle") { return true; } 

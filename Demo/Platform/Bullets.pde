@@ -14,7 +14,14 @@ public class Bullets {
     }
 
     public void deleteOffScreen() {
-        this.bullets.removeIf(bullet -> bullet.position.x > width || bullet.position.x < 0 || bullet.position.y < 0 || bullet.position.y > height);
+        // this.bullets.removeIf(bullet -> bullet.position.x > width || bullet.position.x < 0 || bullet.position.y < 0 || bullet.position.y > height);
+        for (int i=this.bullets.size()-1; i>=0; i--) {
+            Bullet bullet = this.bullets.get(i);
+            if (bullet.position.x > width || bullet.position.x < 0 || 
+                bullet.position.y < 0 || bullet.position.y > height) {
+                    this.bullets.remove(bullet);
+                }
+        }
     }
     
     public void update() {
@@ -27,6 +34,6 @@ public class Bullets {
         for (Bullet bullet: this.bullets) {
             bullet.display();
         }
-        // deleteOffScreen();
+        deleteOffScreen();
     }
 }

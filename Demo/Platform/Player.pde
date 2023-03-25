@@ -1,6 +1,7 @@
 public class Player extends Character {
     private float speed;
     // attack related property
+    private boolean fire;
     private int fireRate;
     private int fireCnt;
     private boolean readyToFire;
@@ -10,13 +11,20 @@ public class Player extends Character {
     private int safeThreshold = 20;
     private int safeCounter = 1;
 
-    public Player (float x, float y, float w, float h) {
+    public boolean left = false;
+    public boolean right = false;
+    public boolean jump = false;
+
+    private InputManager inputManager;
+
+    public Player (float x, float y, float w, float h, InputManager inputManager) {
         super(x, y, w, h, "Player");
         this.coll = new Collider(x, y, w, h);
         this.velocity = new PVector(0, 0);
         this.speed = 3;
         this.health = PLAYER_HEALTH;
         // fire related property
+        this.fire = false;
         this.fireRate = 20;
         this.fireCnt = 0;
         this.readyToFire = true;
@@ -35,22 +43,18 @@ public class Player extends Character {
         this.animator.setAnimation(State.WALK_R, "Run_R", 14, int(w), int(h), true);
         this.animator.setAnimation(State.DEAD_L, "Dead_L", 6, int(w), int(h), false);
         this.animator.setAnimation(State.DEAD_R, "Dead_R", 6, int(w), int(h), false);
+        // set input manager
+        this.inputManager = inputManager;
     }
     // handle input, set the velocity based on input,
     // then move player based on velocity
     protected void movement() {
         // the vertical velocity is constantly affected by gravity
         this.velocity.y += this.gravity;
-        if (keyPressed) {
-            if (key == 'a' || key == 'A') {
-                this.velocity.x = -this.speed;
-            }
-            if (key == 'd' || key == 'D') {
-                this.velocity.x = this.speed;
-            }
-            if (key == 'w' || key == 'W') {
-                jump();
-            }
+        if (inputManager.getKeyList().size() > 0) {
+            if (inputManager.getKey() == inputManager.left) { this.velocity.x = -this.speed; }
+            if (inputManager.getKey() == inputManager.right) { this.velocity.x = this.speed; }
+            if (inputManager.getKey() == inputManager.jump) { jump(); }
         } else {
             this.velocity.x = 0;
         }
@@ -69,6 +73,11 @@ public class Player extends Character {
     }
 
     private void checkFire() {
+        if (inputManager.getKeyList().size() > 0 && inputManager.getKey() == inputManager.fire) { 
+            this.fire = true; 
+        } else {
+            this.fire = false;
+        }
         if (this.fireCnt >= this.fireRate) {
             this.readyToFire = true;
             this.fireCnt = 0;
@@ -79,13 +88,11 @@ public class Player extends Character {
     }
   
     public void fire() {
-        if (mousePressed && readyToFire && !isDead()) {
+        if (this.fire && readyToFire && !isDead()) {
             this.readyToFire = false;
-            PVector bulletVel = new PVector(mouseX - this.position.x - this.w/2, mouseY - this.position.y - this.h/2);
-            bulletVel.normalize();
-            bulletVel.setMag(20);
+            PVector bulletVel = new PVector(this.facing * 20, 0);
             Bullet bullet = new Bullet(this.position.x+this.w/2,this.position.y+this.h/2, bulletVel);
-            bullets.addBullet(bullet);
+            game.bullets.addBullet(bullet);
         }
     }
 
@@ -94,7 +101,7 @@ public class Player extends Character {
             this.safeCounter++;
             return false; 
         } 
-        for (Enemy enemy: enemies.enemies) {
+        for (Enemy enemy: game.enemies.enemies) {
             if (enemy.isDead()) { continue; }
             if (this.coll.collideWith(enemy.coll)) {
                 this.safeCounter = 0;
@@ -120,6 +127,5 @@ public class Player extends Character {
         fire();
         isHit();
         stateMachine.updateState();
-        // animator.playAnimation();
     }
 }
