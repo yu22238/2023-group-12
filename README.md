@@ -60,7 +60,32 @@ o Use case diagrams, user stories. Early stages design. Ideation process. How di
 ## Design (15% ~750 words)
 
 o System architecture. Class diagrams, behavioural diagrams.
-![Class Diagram](./Demo/ClassDiagram.png)
+
+This is the class diagram that illustrates the class hierarchy of our 2D platformer game.
+[Class Diagram](./Demo/demo.drawio)
+### GameObject
+The top level of this hierarchy is occupied by the abstract class, GameObject, which is the base class for all visible objects in the game. It contains essential properties such as position, tag, width, and height. Additionally, it has two essential methods: "update" and "display". The "update" method updates the game object's state and is called every 1/120 second. The "display" method is responsible for drawing images on the screen and is called every frame (1/60 second).
+
+The GameObject class has three classes that extend it: Character, Tile, and Bullet. These classes are responsible for creating and managing characters, tiles, and bullets in the game.
+### Character
+Two subclasses of the Character class are Player and Enemy, which represent the player character and the enemy characters, respectively. The Player and Enemy classes inherit all the properties and methods of the Character class.
+
+The Character class aggregates three classes: Animator, StateMachine, and Collider. This means that, besides inheriting properties, the Character class has instances of these classes, and it can use their functionality to control the state and animation of the character objects in the game.
+### Animator
+The Animator class has several instances of Animation stored in a HashMap. The keys represent different states, and the values represent instances of Animation. This class can use its functionality to play corresponding animations associated with a given state.
+### Collider
+Similarly, the Collider class is aggregated by Tile, Bullet and Character classes. The Tile, Bullet and Character classes have instances of Collider, and they can use its functionality to detect collisions between objects in the game. For example, to check if a bullet hits an enemy, or if player is standing on a platform.
+### TileMap
+The TileMap class is composed of the Tile class, which means that TileMap has all the instances of Tiles. It is used to create and manage tile objects in every map in the game.
+### Bullets
+The Bullets class is composed of the Bullet class, which means that Bullets has all the instances of Bullet, and it can use its functionality to create and manage bullet objects in the game.
+### Enemies
+Similar to Bullets class to Bullet, the Enemies class is composed of the Enemy class, and has all the instances of Enemy. It can use its functionality to create and manage all enemies in the game.
+### InputManager
+The InputManager class is aggregated by the Player class, which means that the Player class has an instance of InputManager, and it can use its functionality to handle user input for the player character in the game. Since this game is a multiplayer game with two players, each player has an inputManager that responds to its unique keyboard input.
+### Game
+Finally, the instances of TileMap, Bullets, Enemies, and Player are compositions of the Game class, which is a class for managing all the objects and game states. This means that the Game class has instances of these classes, along with other properties like gameStart and stage. Its functionality can be used to create and manage the different game state, like “game start” or “game over”, and game scenes, like “level 1” and “level 2”.
+
 
 ## Implementation (15% ~750 words)
 
