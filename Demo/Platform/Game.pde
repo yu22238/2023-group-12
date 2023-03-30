@@ -4,8 +4,8 @@ class Game implements Runnable {
 
     public boolean gameStart = false;
 
-    public Player player;
-    public Player player2;
+    public Player fireboy;
+    public Player watergirl;
     public Enemies enemies;
     public Bullets bullets;
     public TileMap tileMap;
@@ -21,11 +21,11 @@ class Game implements Runnable {
     }
 
     private void initClasses() {
-        player = new Player(width/2-100, height/2 + 200, 60, 60, inputManager1);
-        player2 = new Player(width/2-100, height/2 + 200, 60, 60, inputManager2);
-        enemies = new Enemies();
-        bullets = new Bullets();
         tileMap = new TileMap();
+        fireboy = new Fireboy(width/2-100, height/2 + 200, 60, 60, inputManagerFire);
+        watergirl = new Watergirl(width/2-100, height/2 + 200, 60, 60, inputManagerWater);
+        bullets = new Bullets();
+        enemies = new Enemies();
     }
 
     public void update() {
@@ -34,8 +34,8 @@ class Game implements Runnable {
             this.gameStart = true;
         }
         if (this.gameStart) {
-            player.update();
-            player2.update();
+            fireboy.update();
+            watergirl.update();
             bullets.update();
             enemies.update();
         }
@@ -47,8 +47,8 @@ class Game implements Runnable {
         }
         if (this.stage == 2) {
             tileMap.display();
-            player.display();
-            player2.display();
+            fireboy.display();
+            watergirl.display();
             bullets.display();
             enemies.display();
         }

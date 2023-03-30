@@ -5,6 +5,7 @@ public abstract class Character extends GameObject {
     protected boolean isOnGround = false;
     protected StateMachine stateMachine;
     protected Animator animator;
+    // 1 if character faces to the right, -1 if character faces to the left
     protected int facing;
 
     public Character (float x, float y, float w, float h, String tag) {
@@ -64,6 +65,7 @@ public abstract class Character extends GameObject {
     }
 
     protected boolean collisionCheck(PVector cornerPos) {
+        // get position of the tile which we need to check collision
         int row = int(cornerPos.y / TILE_SIZE);
         int col = int(cornerPos.x / TILE_SIZE);
         Tile tile = game.tileMap.getTileMap()[row][col];
