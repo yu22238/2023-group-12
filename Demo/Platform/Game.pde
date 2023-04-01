@@ -26,6 +26,21 @@ class Game implements Runnable {
         watergirl = new Watergirl(width/2-100, height/2 + 200, 60, 60, inputManagerWater);
         bullets = new Bullets();
         enemies = new Enemies();
+        setEnemies();
+    }
+
+    private void setEnemies() {
+        Enemy pirate = new Pirate(200, 100, 60, 60);
+        Enemy cucumber = new Cucumber(800, 200, 60, 60);
+        Enemy bigGuy = new BigGuy(1400, 70, 60, 60);
+        Enemy captain = new Captain(1100, 120, 60, 60);
+        pirate.setPatrolArea(190, 360);
+        cucumber.setPatrolArea(650, 840);
+        captain.setPatrolArea(1050, 1200);
+        enemies.addEnemy(pirate);
+        enemies.addEnemy(cucumber);
+        enemies.addEnemy(bigGuy);
+        enemies.addEnemy(captain);
     }
 
     public void update() {

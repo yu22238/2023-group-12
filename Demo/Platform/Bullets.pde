@@ -1,3 +1,5 @@
+import java.util.concurrent.*;
+
 public class Bullets {
     public ArrayList<Bullet> bullets;
     
@@ -13,27 +15,27 @@ public class Bullets {
         this.bullets.remove(bullet);
     }
 
-    public void deleteOffScreen() {
-        // this.bullets.removeIf(bullet -> bullet.position.x > width || bullet.position.x < 0 || bullet.position.y < 0 || bullet.position.y > height);
-        for (int i=this.bullets.size()-1; i>=0; i--) {
-            Bullet bullet = this.bullets.get(i);
-            if (bullet.position.x > width || bullet.position.x < 0 || 
-                bullet.position.y < 0 || bullet.position.y > height) {
-                    this.bullets.remove(bullet);
-                }
-        }
+    public void deleteInvalidBullets() {
+        this.bullets.removeIf(bullet -> bullet.isOffScreen() || bullet.collideWithObstacle());
     }
     
     public void update() {
-        for (Bullet bullet: this.bullets) {
+        deleteInvalidBullets();
+        
+        CopyOnWriteArrayList<Bullet> copiedBullets = new CopyOnWriteArrayList<>(this.bullets);
+        Iterator<Bullet> iterator = copiedBullets.iterator();
+        while (iterator.hasNext()) {
+            Bullet bullet = iterator.next();
             bullet.update();
         }
     }
     
     public void display() {
-        for (Bullet bullet: this.bullets) {
+        CopyOnWriteArrayList<Bullet> copiedBullets = new CopyOnWriteArrayList<>(this.bullets);
+        Iterator<Bullet> iterator = copiedBullets.iterator();
+        while (iterator.hasNext()) {
+            Bullet bullet = iterator.next();
             bullet.display();
         }
-        deleteOffScreen();
     }
 }
