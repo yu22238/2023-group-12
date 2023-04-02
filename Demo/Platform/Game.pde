@@ -9,6 +9,7 @@ class Game implements Runnable {
     public Enemies enemies;
     public Bullets bullets;
     public TileMap tileMap;
+    public Diamonds diamonds;
     
     public StartScreen startScreen = new StartScreen();
     
@@ -27,20 +28,29 @@ class Game implements Runnable {
         bullets = new Bullets();
         enemies = new Enemies();
         setEnemies();
+        setDiamonds();
     }
     
     private void setEnemies() {
         Enemy pirate = new Pirate(tileMap.PRIVATE_X, tileMap.PRIVATE_Y, 60, 60);
+        pirate.setPatrolArea(tileMap.PRIVATE_X + tileMap.PRIVATE_LEFT, tileMap.PRIVATE_X + tileMap.PRIVATE_RIGHT);
         Enemy cucumber = new Cucumber(tileMap.CUCUMBER_X, tileMap.CUCUMBER_Y,60, 60);
+        cucumber.setPatrolArea(tileMap.CUCUMBER_X + tileMap.CUCUMBER_LEFT,tileMap.CUCUMBER_X + tileMap.CUCUMBER_RIGHT);
         Enemy bigGuy = new BigGuy(tileMap.BIGGUY_X, tileMap.BIGGUY_Y, 60, 60);
+        bigGuy.setPatrolArea(tileMap.BIGGUY_X + tileMap.BIGGUY_LEFT,tileMap.BIGGUY_X + tileMap.BIGGUY_RIGHT);
         Enemy captain = new Captain(tileMap.CAPTAIN_X, tileMap.CAPTAIN_Y, 60, 60);
-        pirate.setPatrolArea(190, 360);
-        cucumber.setPatrolArea(650, 840);
-        captain.setPatrolArea(1050, 1200);
+        captain.setPatrolArea(tileMap.CAPTAIN_X + tileMap.CAPTAIN_LEFT, tileMap.CAPTAIN_X + tileMap.CAPTAIN_RIGHT);
         enemies.addEnemy(pirate);
         enemies.addEnemy(cucumber);
         enemies.addEnemy(bigGuy);
         enemies.addEnemy(captain);
+    }
+    
+    private void setDiamonds() {
+        diamonds=new Diamonds();
+        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_1,tileMap.DIAMOND_Y_1));
+        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_2,tileMap.DIAMOND_Y_2));
+        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_3,tileMap.DIAMOND_Y_3));
     }
     
     public void update() {
@@ -49,6 +59,7 @@ class Game implements Runnable {
             this.gameStart = true;
         }
         if (this.gameStart) {
+            diamonds.update();
             fireboy.update();
             watergirl.update();
             bullets.update();
@@ -62,6 +73,7 @@ class Game implements Runnable {
         }
         if (this.stage == 2) {
             tileMap.display();
+            diamonds.display();
             fireboy.display();
             watergirl.display();
             bullets.display();
