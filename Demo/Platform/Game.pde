@@ -6,13 +6,15 @@ class Game implements Runnable {
     
     public Player fireboy;
     public Player watergirl;
-    public Enemies enemies;
-    public Enemy enemy;
-    public Bullets bullets;
+    public Enemies enemies = new Enemies();
+    private Enemy enemy;
+    public Bullets bullets = new Bullets();
     public TileMap tileMap;
     public Diamonds diamonds;
     public DestinationGate fireGate;
     public DestinationGate waterGate;
+    private River river;
+    public Rivers rivers = new Rivers();
     
     public StartScreen startScreen = new StartScreen();
     
@@ -28,12 +30,11 @@ class Game implements Runnable {
         tileMap = new TileMap(1);
         fireboy = new Fireboy(tileMap.playerData.get(0),tileMap.playerData.get(1), 60, 60, inputManagerFire);
         watergirl = new Watergirl(tileMap.playerData.get(2), tileMap.playerData.get(3), 60, 60, inputManagerWater);
-        bullets = new Bullets();
-        enemies = new Enemies();
-        fireGate=new DestinationGate(tileMap.doorData.get(0),tileMap.doorData.get(1),"Fire");
-        waterGate=new DestinationGate(tileMap.doorData.get(2),tileMap.doorData.get(3),"Water");
+        fireGate = new DestinationGate(tileMap.doorData.get(0),tileMap.doorData.get(1),"Fire");
+        waterGate = new DestinationGate(tileMap.doorData.get(2),tileMap.doorData.get(3),"Water");
         setEnemies();
         setDiamonds();
+        setRivers();
     }
     
     private void setEnemies() {
@@ -42,26 +43,26 @@ class Game implements Runnable {
             int enemyNum;
             enemyNum = enemyData.get(i).intValue();
             switch(enemyNum) {
-                case 1:{
+                case 1 : 
                     enemy = new Pirate(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
                     enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
                     break;
-                }
-                case 2:{
-                    enemy = new Cucumber(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                    break;
-                }
-                case 3:{
-                    enemy = new BigGuy(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                    break;
-                }
-                case 4:{
-                    enemy = new Captain(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                    break;
-                }
+                
+                case 2 : 
+                enemy = new Cucumber(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                break;
+                
+                case 3 : 
+                enemy = new BigGuy(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                break;
+                
+                case 4 : 
+                enemy = new Captain(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                break;
+                
             }
             enemies.addEnemy(enemy);
         }
@@ -72,6 +73,24 @@ class Game implements Runnable {
         diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(0),tileMap.diamondData.get(1)));
         diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(2),tileMap.diamondData.get(3)));
         diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(4),tileMap.diamondData.get(5)));
+    }
+    
+    private void setRivers() {
+        ArrayList<Float> riverData = tileMap.riverData;
+        for (int i = 0;i < riverData.size();i += 3) {
+            int riverNum;
+            riverNum = riverData.get(i).intValue();
+            String riverType;
+            if (riverNum ==  1) {
+                riverType = "FireRiver";
+            } else if (riverNum ==  2) {
+                riverType = "WaterRiver";
+            } else{
+                riverType = "PoisonRiver";
+            }
+            river = new River(riverData.get(i + 1),riverData.get(i + 2),riverType);
+            rivers.riverListAdd(river);
+        }
     }
     
     public void update() {
@@ -98,6 +117,7 @@ class Game implements Runnable {
             tileMap.display();
             diamonds.display();
             fireGate.display();
+            // rivers.display();
             waterGate.display();
             fireboy.display();
             watergirl.display();

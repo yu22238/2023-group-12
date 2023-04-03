@@ -8,7 +8,7 @@ public class DestinationGate extends GameObject {
         super(x, y, 60,60,"Gate");
         setImage(loadImage("Assets/Door/" + gateName + ".png"));
         this.image.resize(60, 70);
-        gateColl = new Collider(x,y,60,80);
+        gateColl = new Collider(x,y,60,70);
         this.gateName = gateName;
     }
     

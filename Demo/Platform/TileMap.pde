@@ -3,6 +3,7 @@ public class TileMap {
     public ArrayList<Float> enemyData = new ArrayList();
     public ArrayList<Float> diamondData = new ArrayList();
     public ArrayList<Float> doorData = new ArrayList();
+    public ArrayList<Float> riverData = new ArrayList();
     
     private char[][] charMap = new char[14][25];
     private Tile[][] tileMap;
@@ -16,6 +17,7 @@ public class TileMap {
         loadLevelData("LevelEnemyData",enemyData);
         loadLevelData("LevelDiamondData",diamondData);
         loadLevelData("LevelDoorData",doorData);
+        loadLevelData("LevelRiverData",riverData);
         this.rowSize = this.charMap.length;
         this.colSize = this.charMap[0].length;
         this.tileMap = new Tile[this.rowSize][this.colSize];
@@ -64,8 +66,7 @@ public class TileMap {
                     this.tileMap[i][j] = new Tile(i, j, "Start");
                 } else if (this.charMap[i][j] == 'B') {
                     this.tileMap[i][j] = new Tile(i, j, "Button");
-                }
-                else {
+                } else {
                     this.tileMap[i][j] = new Tile(i, j, "Space");
                 }
             }
