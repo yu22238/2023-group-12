@@ -21,7 +21,7 @@ public class Diamonds {
             diamond.update();  
         }
     }
-
+    //for level manager to get diamonds number and judge whether win
     public int getDiamondNumber(){
         int cnt=0;
         for(Diamond diamond: this.diamondList){

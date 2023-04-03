@@ -1,4 +1,5 @@
 public class Watergirl extends Player {
+
     public Watergirl (float x, float y, float w, float h, InputManager inputManager) {
         super(x, y, w, h);
 

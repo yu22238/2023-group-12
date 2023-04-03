@@ -23,10 +23,6 @@ public class Tile extends GameObject {
             setImage(loadImage("Assets/Tiles/Poison.png"));
         } else if (this.getTag() == "Start") {
             setImage(loadImage("Assets/Door/Start.png"));
-        } else if (this.getTag() == "FireGate") {
-            setImage(loadImage("Assets/Door/FireGate.png"));
-        } else if (this.getTag() == "WaterGate") {
-            setImage(loadImage("Assets/Door/WaterGate.png"));
         } else if (this.getTag() == "Button") {
             setImage(loadImage("Assets/Tiles/Button.png"));
         } else {

@@ -7,9 +7,12 @@ class Game implements Runnable {
     public Player fireboy;
     public Player watergirl;
     public Enemies enemies;
+    public Enemy enemy;
     public Bullets bullets;
     public TileMap tileMap;
     public Diamonds diamonds;
+    public DestinationGate fireGate;
+    public DestinationGate waterGate;
     
     public StartScreen startScreen = new StartScreen();
     
@@ -23,34 +26,52 @@ class Game implements Runnable {
     
     private void initClasses() {
         tileMap = new TileMap(1);
-        fireboy = new Fireboy(tileMap.FIREBOY_X,tileMap.FIREBOY_Y, 60, 60, inputManagerFire);
-        watergirl = new Watergirl(tileMap.WATERGIRL_X, tileMap.WATERGIRL_Y, 60, 60, inputManagerWater);
+        fireboy = new Fireboy(tileMap.playerData.get(0),tileMap.playerData.get(1), 60, 60, inputManagerFire);
+        watergirl = new Watergirl(tileMap.playerData.get(2), tileMap.playerData.get(3), 60, 60, inputManagerWater);
         bullets = new Bullets();
         enemies = new Enemies();
+        fireGate=new DestinationGate(tileMap.doorData.get(0),tileMap.doorData.get(1),"Fire");
+        waterGate=new DestinationGate(tileMap.doorData.get(2),tileMap.doorData.get(3),"Water");
         setEnemies();
         setDiamonds();
     }
     
     private void setEnemies() {
-        Enemy pirate = new Pirate(tileMap.PRIVATE_X, tileMap.PRIVATE_Y, 60, 60);
-        pirate.setPatrolArea(tileMap.PRIVATE_X + tileMap.PRIVATE_LEFT, tileMap.PRIVATE_X + tileMap.PRIVATE_RIGHT);
-        Enemy cucumber = new Cucumber(tileMap.CUCUMBER_X, tileMap.CUCUMBER_Y,60, 60);
-        cucumber.setPatrolArea(tileMap.CUCUMBER_X + tileMap.CUCUMBER_LEFT,tileMap.CUCUMBER_X + tileMap.CUCUMBER_RIGHT);
-        Enemy bigGuy = new BigGuy(tileMap.BIGGUY_X, tileMap.BIGGUY_Y, 60, 60);
-        bigGuy.setPatrolArea(tileMap.BIGGUY_X + tileMap.BIGGUY_LEFT,tileMap.BIGGUY_X + tileMap.BIGGUY_RIGHT);
-        Enemy captain = new Captain(tileMap.CAPTAIN_X, tileMap.CAPTAIN_Y, 60, 60);
-        captain.setPatrolArea(tileMap.CAPTAIN_X + tileMap.CAPTAIN_LEFT, tileMap.CAPTAIN_X + tileMap.CAPTAIN_RIGHT);
-        enemies.addEnemy(pirate);
-        enemies.addEnemy(cucumber);
-        enemies.addEnemy(bigGuy);
-        enemies.addEnemy(captain);
+        ArrayList<Float> enemyData = tileMap.enemyData;
+        for (int i = 0;i < enemyData.size();i += 5) {
+            int enemyNum;
+            enemyNum = enemyData.get(i).intValue();
+            switch(enemyNum) {
+                case 1:{
+                    enemy = new Pirate(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
+                }
+                case 2:{
+                    enemy = new Cucumber(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
+                }
+                case 3:{
+                    enemy = new BigGuy(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
+                }
+                case 4:{
+                    enemy = new Captain(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
+                }
+            }
+            enemies.addEnemy(enemy);
+        }
     }
     
     private void setDiamonds() {
-        diamonds=new Diamonds();
-        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_1,tileMap.DIAMOND_Y_1));
-        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_2,tileMap.DIAMOND_Y_2));
-        diamonds.diamondListAdd(new Diamond(tileMap.DIAMOND_X_3,tileMap.DIAMOND_Y_3));
+        diamonds = new Diamonds();
+        diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(0),tileMap.diamondData.get(1)));
+        diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(2),tileMap.diamondData.get(3)));
+        diamonds.diamondListAdd(new Diamond(tileMap.diamondData.get(4),tileMap.diamondData.get(5)));
     }
     
     public void update() {
@@ -62,6 +83,8 @@ class Game implements Runnable {
             diamonds.update();
             fireboy.update();
             watergirl.update();
+            fireGate.update();
+            waterGate.update();
             bullets.update();
             enemies.update();
         }
@@ -74,6 +97,8 @@ class Game implements Runnable {
         if (this.stage == 2) {
             tileMap.display();
             diamonds.display();
+            fireGate.display();
+            waterGate.display();
             fireboy.display();
             watergirl.display();
             bullets.display();
