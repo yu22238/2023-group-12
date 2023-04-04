@@ -25,7 +25,7 @@ public class DestinationGate extends GameObject {
         
     }
     
-    public void update() {
+    public void update() { 
         if(isOpened){
             return;
         }else if (inDestination ==  true) {

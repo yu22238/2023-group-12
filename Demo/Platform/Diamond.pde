@@ -18,7 +18,6 @@ public class Diamond extends GameObject {
     public void eatDiamond(){
         if(diamondColl.collideWith(game.fireboy.coll)||diamondColl.collideWith(game.watergirl.coll)){
             isEaten=true;
-            println("eatsuccess");
         }
     }
 

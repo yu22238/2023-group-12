@@ -4,6 +4,7 @@ public class TileMap {
     public ArrayList<Float> diamondData = new ArrayList();
     public ArrayList<Float> doorData = new ArrayList();
     public ArrayList<Float> riverData = new ArrayList();
+    public ArrayList<Float> mechanismData=new ArrayList();
     
     private char[][] charMap = new char[14][25];
     private Tile[][] tileMap;
@@ -18,6 +19,7 @@ public class TileMap {
         loadLevelData("LevelDiamondData",diamondData);
         loadLevelData("LevelDoorData",doorData);
         loadLevelData("LevelRiverData",riverData);
+        loadLevelData("LevelMechanismData",mechanismData);
         this.rowSize = this.charMap.length;
         this.colSize = this.charMap[0].length;
         this.tileMap = new Tile[this.rowSize][this.colSize];

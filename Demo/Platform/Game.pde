@@ -15,6 +15,9 @@ class Game implements Runnable {
     public DestinationGate waterGate;
     private River river;
     public Rivers rivers = new Rivers();
+    private Button button;
+    private Blocker blocker;
+    public Mechanism mechanism = new Mechanism();
     
     public StartScreen startScreen = new StartScreen();
     
@@ -35,6 +38,7 @@ class Game implements Runnable {
         setEnemies();
         setDiamonds();
         setRivers();
+        setMechanism();
     }
     
     private void setEnemies() {
@@ -49,19 +53,19 @@ class Game implements Runnable {
                     break;
                 
                 case 2 : 
-                enemy = new Cucumber(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                break;
+                    enemy = new Cucumber(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
                 
                 case 3 : 
-                enemy = new BigGuy(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                break;
+                    enemy = new BigGuy(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
                 
                 case 4 : 
-                enemy = new Captain(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
-                enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
-                break;
+                    enemy = new Captain(enemyData.get(i + 1),enemyData.get(i + 2),60,60);
+                    enemy.setPatrolArea(enemyData.get(i + 1) + enemyData.get(i + 3), enemyData.get(i + 1) + enemyData.get(i + 4));
+                    break;
                 
             }
             enemies.addEnemy(enemy);
@@ -93,6 +97,16 @@ class Game implements Runnable {
         }
     }
     
+    private void setMechanism() {
+        ArrayList<Float> mechanismData = tileMap.mechanismData;
+        for (int i = 0;i < mechanismData.size();i += 6) {
+            button = new Button(mechanismData.get(i),mechanismData.get(i+1));
+            blocker = new Blocker(mechanismData.get(i + 2),mechanismData.get(i + 3),mechanismData.get(i + 4),mechanismData.get(i + 5));
+            mechanism.buttonListAdd(button);
+            mechanism.blockerListAdd(blocker);
+        }
+    }
+    
     public void update() {
         if (this.stage == 1 && keyPressed) {
             this.stage = 2;
@@ -102,6 +116,7 @@ class Game implements Runnable {
             diamonds.update();
             fireboy.update();
             watergirl.update();
+            mechanism.update();
             fireGate.update();
             waterGate.update();
             bullets.update();
@@ -117,8 +132,9 @@ class Game implements Runnable {
             tileMap.display();
             diamonds.display();
             fireGate.display();
-            // rivers.display();
             waterGate.display();
+            // rivers.display();
+            mechanism.display();
             fireboy.display();
             watergirl.display();
             bullets.display();

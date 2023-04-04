@@ -88,7 +88,7 @@ public class Player extends Character {
     }
     
     public void fire() {
-        if (this.fire && readyToFire && !isDead() && finish) {
+        if (this.fire && readyToFire && !isDead() && !finish) {
             this.readyToFire = false;
             PVector bulletVel = new PVector(this.facing * 20, 0);
             Bullet bullet = new Bullet(this.position.x + this.w / 2,this.position.y + this.h / 2, bulletVel);

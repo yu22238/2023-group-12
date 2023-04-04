@@ -21,6 +21,11 @@ public class Bullet extends GameObject{
         if (this.coll.collideWith(tile.coll)) {
             if (tile.getTag() == "Obstacle") { return true; } 
         }
+        for(Blocker blocker:game.mechanism.blockerList){
+            if(this.coll.collideWith(blocker.coll)){
+                return true;
+            }
+        }
         return false;
     }
 

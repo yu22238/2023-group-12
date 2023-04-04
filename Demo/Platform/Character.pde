@@ -5,7 +5,7 @@ public abstract class Character extends GameObject {
     protected boolean isOnGround = false;
     protected StateMachine stateMachine;
     protected Animator animator;
-    protected boolean finish=false;
+    protected boolean finish = false;
     // 1 if character faces to the right, -1 if character faces to the left
     protected int facing;
     
@@ -72,10 +72,12 @@ public abstract class Character extends GameObject {
         Tile tile = game.tileMap.getTileMap()[row][col];
         
         if (this.coll.collideWith(tile.coll)) {
-            if (tile.getTag() == "Obstacle"||tile.getTag() == "Poison"||tile.getTag() == "Fire"||tile.getTag() == "Water") { return true; } 
+            if (tile.getTag() == "Obstacle" ||  tile.getTag() == "Poison" ||  tile.getTag() == "Fire" ||  tile.getTag() == "Water") { return true; } 
         }
         return false;
     }
+    
+    
     
     // if the expected new position in next frame is blocked by an obstacle, then call this method to 
     // reset the position back to origin position
@@ -112,8 +114,8 @@ public abstract class Character extends GameObject {
     }
     
     public void display() {
-        if ((this instanceof Watergirl && game.waterGate.isOpened)||(this instanceof Fireboy && game.fireGate.isOpened)) {
-            finish=true;
+        if ((this instanceof Watergirl && game.waterGate.isOpened) || (this instanceof Fireboy && game.fireGate.isOpened)) {
+            finish = true;
             return;
         }
         animator.playAnimation();
