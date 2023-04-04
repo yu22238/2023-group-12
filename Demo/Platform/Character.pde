@@ -72,7 +72,7 @@ public abstract class Character extends GameObject {
         Tile tile = game.tileMap.getTileMap()[row][col];
     
         if (this.coll.collideWith(tile.coll)) {
-            if (tile.getTag() == "Obstacle" ||  tile.getTag() == "Poison" ||  tile.getTag() == "Fire" ||  tile.getTag() == "Water") { return true; } 
+            if (tile.getTag() == "Obstacle" ||  tile.getTag() == "Poison"||  tile.getTag() == "PoisonLeft" ||  tile.getTag() == "PoisonRight"||  tile.getTag() == "Fire" ||tile.getTag() == "FireLeft"||tile.getTag() == "FireRight" ||  tile.getTag() == "Water"||  tile.getTag() == "WaterLeft"||  tile.getTag() == "WaterRight") { return true; } 
         }
         return false;
     }

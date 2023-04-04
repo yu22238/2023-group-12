@@ -17,10 +17,22 @@ public class Tile extends GameObject {
             setImage(loadImage("Assets/Tiles/Platform.png"));
         } else if (this.getTag() == "Fire") {
             setImage(loadImage("Assets/Tiles/Fire.png"));
-        } else if (this.getTag() == "Water") {
+        } else if (this.getTag() == "FireLeft") {
+            setImage(loadImage("Assets/Tiles/FireLeft.png"));
+        } else if (this.getTag() == "FireRight") {
+            setImage(loadImage("Assets/Tiles/FireRight.png"));
+        }else if (this.getTag() == "Water") {
             setImage(loadImage("Assets/Tiles/Water.png"));
+        }else if (this.getTag() == "WaterLeft") {
+            setImage(loadImage("Assets/Tiles/WaterLeft.png"));
+        }else if (this.getTag() == "WaterRight") {
+            setImage(loadImage("Assets/Tiles/WaterRight.png"));
         } else if (this.getTag() == "Poison") {
             setImage(loadImage("Assets/Tiles/Poison.png"));
+        } else if (this.getTag() == "PoisonLeft") {
+            setImage(loadImage("Assets/Tiles/PoisonLeft.png"));
+        } else if (this.getTag() == "PoisonRight") {
+            setImage(loadImage("Assets/Tiles/PoisonRight.png"));
         } else if (this.getTag() == "Start") {
             setImage(loadImage("Assets/Door/Start.png"));
         } else if (this.getTag() == "Button") {

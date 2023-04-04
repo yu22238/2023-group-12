@@ -4,7 +4,7 @@ public class TileMap {
     public ArrayList<Float> diamondData = new ArrayList();
     public ArrayList<Float> doorData = new ArrayList();
     public ArrayList<Float> riverData = new ArrayList();
-    public ArrayList<Float> mechanismData=new ArrayList();
+    public ArrayList<Float> mechanismData = new ArrayList();
     
     private char[][] charMap = new char[14][25];
     private Tile[][] tileMap;
@@ -60,14 +60,24 @@ public class TileMap {
                     this.tileMap[i][j] = new Tile(i, j, "Obstacle");
                 } else if (this.charMap[i][j] == 'F') {
                     this.tileMap[i][j] = new Tile(i, j, "Fire");    
-                } else if (this.charMap[i][j] == 'W') {
+                } else if (this.charMap[i][j] == 'D') {
+                    this.tileMap[i][j] = new Tile(i, j, "FireLeft");    
+                } else if (this.charMap[i][j] == 'G') {
+                    this.tileMap[i][j] = new Tile(i, j, "FireRight");    
+                }  else if (this.charMap[i][j] == 'W') {
                     this.tileMap[i][j] = new Tile(i, j, "Water");    
+                } else if (this.charMap[i][j] == 'Q') {
+                    this.tileMap[i][j] = new Tile(i, j, "WaterLeft");    
+                } else if (this.charMap[i][j] == 'E') {
+                    this.tileMap[i][j] = new Tile(i, j, "WaterRight");    
                 } else if (this.charMap[i][j] == 'P') {
                     this.tileMap[i][j] = new Tile(i, j, "Poison");
+                } else if (this.charMap[i][j] == 'I') {
+                    this.tileMap[i][j] = new Tile(i, j, "PoisonLeft");
+                } else if (this.charMap[i][j] == 'O') {
+                    this.tileMap[i][j] = new Tile(i, j, "PoisonRight");
                 } else if (this.charMap[i][j] == 'S') {
                     this.tileMap[i][j] = new Tile(i, j, "Start");
-                } else if (this.charMap[i][j] == 'B') {
-                    this.tileMap[i][j] = new Tile(i, j, "Button");
                 } else {
                     this.tileMap[i][j] = new Tile(i, j, "Space");
                 }

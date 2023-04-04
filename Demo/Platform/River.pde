@@ -4,7 +4,7 @@ public class River extends GameObject {
     public String riverType;
 
     public River (float x, float y,String riverType) {
-        super(x+5, y,50,10,"River");
+        super(x+5, y,50,20,"River");
         this.riverType=riverType;
         if(riverType.equals("FireRiver")){
             setImage(loadImage("Assets/RiverTest/red.png"));
@@ -13,8 +13,8 @@ public class River extends GameObject {
         }else if(riverType.equals("PoisonRiver")){
             setImage(loadImage("Assets/RiverTest/green.png"));
         }
-        this.image.resize(50, 10);
-        riverColl=new Collider(x+5,y,50,10);
+        this.image.resize(50, 20);
+        riverColl=new Collider(x+5,y,50,20);
     }
 
     public void update() {}
