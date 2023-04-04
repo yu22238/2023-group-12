@@ -30,7 +30,6 @@ public class Blocker extends GameObject {
         setHeight(h);
         this.image.resize((int)w,(int)h);
         coll = new Collider(x,y,w,h);
-        
     }
     
     public void setbuttonPush(boolean push) {

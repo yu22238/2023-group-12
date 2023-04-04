@@ -26,7 +26,7 @@ public abstract class Character extends GameObject {
         boolean bottomLeftColl = collisionCheck(this.coll.bottomLeft);
         boolean bottomRightColl = collisionCheck(this.coll.bottomRight);
         
-        if (topLeftColl || topRightColl || bottomLeftColl || bottomRightColl) {
+        if (topLeftColl || topRightColl || bottomLeftColl || bottomRightColl||blockerCheck()) {
             cancelXMove();
             return;
         }
@@ -48,7 +48,7 @@ public abstract class Character extends GameObject {
             return;
         }
         // character landed on platform
-        if ((bottomLeftColl || bottomRightColl) && (!topLeftColl && !topRightColl)) {
+        if (((bottomLeftColl || bottomRightColl) && (!topLeftColl && !topRightColl))||blockerCheck()) {
             cancelYMove();
             this.velocity.y = 0;
             this.gravity = 0;
@@ -70,9 +70,18 @@ public abstract class Character extends GameObject {
         int row = int(cornerPos.y / TILE_SIZE);
         int col = int(cornerPos.x / TILE_SIZE);
         Tile tile = game.tileMap.getTileMap()[row][col];
-        
+    
         if (this.coll.collideWith(tile.coll)) {
             if (tile.getTag() == "Obstacle" ||  tile.getTag() == "Poison" ||  tile.getTag() == "Fire" ||  tile.getTag() == "Water") { return true; } 
+        }
+        return false;
+    }
+
+    protected boolean blockerCheck() {
+        for(Blocker blocker:game.mechanism.blockerList){
+            if(this.coll.collideWith(blocker.coll)){
+                return true;
+            }
         }
         return false;
     }
