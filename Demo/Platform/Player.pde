@@ -120,10 +120,7 @@ public class Player extends Character {
         for (River river : game.rivers.riverList) {
             if ((this instanceof Fireboy && (!river.riverType.equals("FireRiver"))) || (this instanceof Watergirl && (!river.riverType.equals("WaterRiver")))) {
                 if (this.coll.collideWith(river.riverColl)) {
-                    this.safeCounter = 0;
-                    if (this.health > 0) {
-                        this.health--;
-                    }
+                    this.health=0;
                     return true;
                 }
             }

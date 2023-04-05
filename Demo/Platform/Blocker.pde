@@ -8,6 +8,7 @@ public class Blocker extends GameObject {
     private float y;
     private float w;
     private float h;
+    private int move=100;
     
     public Blocker(float x, float y,float blockerType,float blockDirection) {
         super(x, y, 0,0,"Blocker");
@@ -41,46 +42,43 @@ public class Blocker extends GameObject {
             return;
         }
         if (push) {
-            //vertical blocker
-            if (blockerType ==  1) {
-                //move up
-                if (blockDirection ==  1) {
-                    if ((this.y - h) !=  position.y) {
-                        setPosition(x,position.y - 1);
-                        coll = new Collider(x,position.y,w,h);
-                    } else{
-                        activate = true;
-                    }
-                    //move down
-                } else{
-                    if ((this.y + h) !=  position.y) {
-                        setPosition(x,position.y + 1);
-                        coll = new Collider(x,position.y,w,h);
-                    } else{
-                        activate = true;
-                    }
-                }
-                //horizonal blocker
+            blockerMove();
+        }
+    }
+    
+    private void blockerMove() {
+        //move up
+        if (blockDirection ==  1) {
+            if ((this.y - move) !=  position.y) {
+                setPosition(x,position.y - 1);
+                coll = new Collider(x,position.y,w,h);
             } else{
-                //move left
-                if (blockDirection ==  1) {
-                    if ((this.x - w) !=  position.x) {
-                        setPosition(position.x - 1,y);
-                        coll = new Collider(position.x,y,w,h);
-                    } else{
-                        activate = true;
-                    }
-                    //move right
-                } else{
-                    if ((this.x + w) !=  position.x) {
-                        setPosition(position.x + 1,y);
-                        coll = new Collider(position.x,y,w,h);
-                    } else{
-                        activate = true;
-                    }
-                }
+                activate = true;
+            }
+            //move down
+        } else if (blockDirection ==  2) {
+            if ((this.y + move) !=  position.y) {
+                setPosition(x,position.y + 1);
+                coll = new Collider(x,position.y,w,h);
+            } else{
+                activate = true;
+            }
+            //move left
+        } else if (blockDirection ==  3) {
+            if ((this.x - move) !=  position.x) {
+                setPosition(position.x - 1,y);
+                coll = new Collider(position.x,y,w,h);
+            } else{
+                activate = true;
+            }
+            //move right
+        } else {
+            if ((this.x + move) !=  position.x) {
+                setPosition(position.x + 1,y);
+                coll = new Collider(position.x,y,w,h);
+            } else{
+                activate = true;
             }
         }
-        
     }
 }

@@ -8,7 +8,12 @@ public class Tile extends GameObject {
         super(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE, tag);
         this.row = row;
         this.col = col;
-        this.coll = new Collider(this.position.x, this.position.y, TILE_SIZE, TILE_SIZE);
+        if (tag.equals("Fire") ||  tag.equals("Water") ||  tag.equals("Poison")) {
+            this.coll = new Collider(this.position.x, this.position.y+25, TILE_SIZE, TILE_SIZE-25);
+        } else{
+            this.coll = new Collider(this.position.x, this.position.y, TILE_SIZE, TILE_SIZE);
+        }
+        
         setTile();
     }
     
@@ -21,11 +26,11 @@ public class Tile extends GameObject {
             setImage(loadImage("Assets/Tiles/FireLeft.png"));
         } else if (this.getTag() == "FireRight") {
             setImage(loadImage("Assets/Tiles/FireRight.png"));
-        }else if (this.getTag() == "Water") {
+        } else if (this.getTag() == "Water") {
             setImage(loadImage("Assets/Tiles/Water.png"));
-        }else if (this.getTag() == "WaterLeft") {
+        } else if (this.getTag() == "WaterLeft") {
             setImage(loadImage("Assets/Tiles/WaterLeft.png"));
-        }else if (this.getTag() == "WaterRight") {
+        } else if (this.getTag() == "WaterRight") {
             setImage(loadImage("Assets/Tiles/WaterRight.png"));
         } else if (this.getTag() == "Poison") {
             setImage(loadImage("Assets/Tiles/Poison.png"));

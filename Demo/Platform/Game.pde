@@ -29,8 +29,8 @@ class Game implements Runnable {
         gameThread.start();
     }
     
-    private void initClasses() {
-        tileMap = new TileMap(2);
+    private void initClasses() { 
+        tileMap = new TileMap(3);
         fireboy = new Fireboy(tileMap.playerData.get(0),tileMap.playerData.get(1), 60, 60, inputManagerFire);
         watergirl = new Watergirl(tileMap.playerData.get(2), tileMap.playerData.get(3), 60, 60, inputManagerWater);
         fireGate = new DestinationGate(tileMap.doorData.get(0),tileMap.doorData.get(1),"Fire");
