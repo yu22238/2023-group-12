@@ -110,7 +110,6 @@ class Game implements Runnable {
     
     public void update() {
 
-    }
         diamonds.update();
         fireboy.update();
         watergirl.update();
