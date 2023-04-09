@@ -18,19 +18,20 @@ class Game implements Runnable {
     private Button button;
     private Blocker blocker;
     public Mechanism mechanism = new Mechanism();
+    private Instructions instructions = new Instructions();
     
-    public StartScreen startScreen = new StartScreen();
+    //public StartScreen startScreen = new StartScreen();
     
     public int stage = 1;
     
-    public Game() {
+    public Game() {  
         initClasses();
         gameThread = new Thread(this);
         gameThread.start();
     }
     
     private void initClasses() { 
-        tileMap = new TileMap(1);
+        tileMap = new TileMap(level);
         fireboy = new Fireboy(tileMap.playerData.get(0),tileMap.playerData.get(1), 60, 60, inputManagerFire);
         watergirl = new Watergirl(tileMap.playerData.get(2), tileMap.playerData.get(3), 60, 60, inputManagerWater);
         fireGate = new DestinationGate(tileMap.doorData.get(0),tileMap.doorData.get(1),"Fire");
@@ -108,38 +109,30 @@ class Game implements Runnable {
     }
     
     public void update() {
-        if (this.stage == 1 && keyPressed) {
-            this.stage = 2;
-            this.gameStart = true;
-        }
-        if (this.gameStart) {
-            diamonds.update();
-            fireboy.update();
-            watergirl.update();
-            mechanism.update();
-            fireGate.update();
-            waterGate.update();
-            bullets.update();
-            enemies.update();
-        }
+
+        diamonds.update();
+        fireboy.update();
+        watergirl.update();
+        mechanism.update();
+        fireGate.update();
+        waterGate.update();
+        bullets.update();
+        enemies.update();
     }
     
     public void display() {
-        if (this.stage == 1) {
-            startScreen.display();
-        }
-        if (this.stage == 2) {
-            tileMap.display();
-            diamonds.display();
-            fireGate.display();
-            waterGate.display();
-            // rivers.display();
-            mechanism.display();
-            fireboy.display();
-            watergirl.display();
-            bullets.display();
-            enemies.display();
-        }
+
+        tileMap.display();
+        diamonds.display();
+        fireGate.display();
+        waterGate.display();
+        mechanism.display();
+        fireboy.display();
+        watergirl.display();
+        bullets.display();
+        enemies.display();
+        instructions.display();
+
     }
     
     public void run() {
