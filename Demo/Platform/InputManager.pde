@@ -2,14 +2,16 @@ import java.util.Iterator;
 
 public class InputManager {
 
-    public Object left;
-    public Object right;
-    public Object jump;
-    public Object fire;
+    private boolean isFireboy;
+    private Object left;
+    private Object right;
+    private Object jump;
+    private Object fire;
 
     private ArrayList<InputKey> keyList = new ArrayList<>();
 
-    public InputManager(Object left, Object right, Object jump, Object fire) {
+    public InputManager(boolean isFireboy, Object left, Object right, Object jump, Object fire) {
+        this.isFireboy = isFireboy;
         this.left = left;
         this.right = right;
         this.jump = jump;
@@ -47,25 +49,42 @@ public class InputManager {
     // return a enum related to the input
     // return null if input is not a valid key
     public InputKey getValidKey(Object k) {
-        if (left.equals(k)) {
-            return InputKey.LEFT;
-        }
-        if (right.equals(k)) {
-            return InputKey.RIGHT;
-        }
-        if (jump.equals(k)) {
-            return InputKey.JUMP;
-        }
-        if (fire.equals(k)) {
-            return InputKey.FIRE;
+        // fireboy
+        if (isFireboy) {
+            if (left.equals(k) || ((Object)'A').equals(k)) {
+                return InputKey.LEFT;
+            }
+            if (right.equals(k) || ((Object)'D').equals(k)) {
+                return InputKey.RIGHT;
+            }
+            if (jump.equals(k) || ((Object)'W').equals(k)) {
+                return InputKey.JUMP;
+            }
+            if (fire.equals(k) || ((Object)'Q').equals(k)) {
+                return InputKey.FIRE;
+            }
+        } else {
+            // watergirl
+            if (left.equals(k)) {
+                return InputKey.LEFT;
+            }
+            if (right.equals(k)) {
+                return InputKey.RIGHT;
+            }
+            if (jump.equals(k)) {
+                return InputKey.JUMP;
+            }
+            if (fire.equals(k)) {
+                return InputKey.FIRE;
+            }
         }
         
         return null;
     }
 }
 
-InputManager inputManagerFire = new InputManager('a', 'd', 'w', 'q');
-InputManager inputManagerWater = new InputManager(LEFT, RIGHT, UP, '/');
+InputManager inputManagerFire = new InputManager(true, 'a', 'd', 'w', 'q');
+InputManager inputManagerWater = new InputManager(false, LEFT, RIGHT, UP, '/');
 
 void keyPressed() {
     // detect special keys such as UP, DOWN, LEFT, RIGHT
