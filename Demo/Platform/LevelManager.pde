@@ -28,7 +28,7 @@ public class LevelManager{
     }
     
     public void checkForReset(){
-      if (keyPressed && key == 'r') {
+      if (keyPressed && (key == 'r' || key == 'R')) {
             game = new Game(); // Restart the game
         }
     }
