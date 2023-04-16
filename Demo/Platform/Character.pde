@@ -69,6 +69,7 @@ public abstract class Character extends GameObject {
         // get position of the tile which we need to check collision
         int row = int(cornerPos.y / TILE_SIZE);
         int col = int(cornerPos.x / TILE_SIZE);
+        if (row >= 14 || col >= 25) return false;
         Tile tile = game.tileMap.getTileMap()[row][col];
     
         if (this.coll.collideWith(tile.coll)) {
