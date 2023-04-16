@@ -122,7 +122,7 @@ For our quantitative evaluation, we decided to conduct a system usability survey
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |  |  |  |
 
-(click here to see the full [results](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Results.md))
+(click [here](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Results.md) to see the full results)
 
 // NEED TO WRITE //
 
