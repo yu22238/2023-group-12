@@ -98,6 +98,8 @@ o Describe implementation of your game, in particular highlighting the three are
 
 ## Evaluation (15% ~750 words)
 
+# Evaluation
+
 After developing a functional prototype for our game, we conducted an evaluation to pinpoint any potential usability issues. For our initial assessment, we chose to conduct a Heuristic Evaluation as it provides immediate feedback and allows for a more comprehensive analysis compared to a Think-Aloud Evaluation.
 
 We chose 3 people to be our evaluators and coached them into experts by elaborating on the game's design and allowing them to look through our code. Our experts then went through the interface twice, the first time to get a feel for the system and the second time to focus on different elements & explore the game further. After the evaluator was satisfied with the time spent on the interface, we asked them to fill in a [form](https://github.com/UoB-COMSM0110/2023-group-12/tree/master/Evaluation/Heuristic/BlankForm.md) providing us with a list of possible usability problems, the usability principle and the design feature that violated it. All three forms can be found [here](https://github.com/UoB-COMSM0110/2023-group-12/tree/master/Evaluation/Heuristic/Forms).
@@ -110,11 +112,23 @@ As each expert only provided a small number of usability problems, we waited unt
 - Had to figure out which keys to use to move the players & shoot
 - Keys are different to standard gaming conventions
 - Can not distinguish between player and enemies
-- Would forget which keys to use when switching between players
+- Forgetting which keys to use when switching between players
 
 As you can see, our biggest issue with the game was the glitching.  However, one of the experts provided a useful suggestion to address this problem. They recommended deleting the bullets once they had gone off of the screen in order to save memory and prevent the game from crashing. Due to the severity of this issue, we tackled it first and fortunately, this approach was successful in resolving the glitching issue. 
 
-As you can see, our experts pointed out that the keys and objectives of the game are unclear, so we have taken steps to address this issue. Firstly, we have added a start page that provides instructions on how to play the game. Additionally, we have included the aim of each level at the top of the screen to help players understand what they need to do to progress. Lastly, we have made it easier for players to restart by providing instructions on how to do so at the top of each level, preventing them from becoming stuck in the game. These improvements should help enhance the overall gameplay experience for our users.
+Also, our experts pointed out that the keys and objectives of the game are unclear, so we have taken steps to address this issue. Firstly, we have added a start page that provides instructions on how to play the game. Additionally, we have included the aim of each level at the top of the screen to help players understand what they need to do to progress. Lastly, we have made it easier for players to restart by providing instructions on how to do so at the top of each level, preventing them from becoming stuck in the game. These improvements should help enhance the overall gameplay experience for our users.
+
+For our quantitative evaluation, we decided to conduct a system usability survey (SUS) as it can be used on small sample sizes and produces reliable results. We asked 10 people to play our game and then fill out the [survey](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Survey.md). We then calculate the scores from each user and got the following results:
+
+| Player 1 | Player 2 | Player 3 | Player 4 | Player 5 | Player 6 | Player 7 | Player 8 | Player 9 | Player 10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |  |  |  |  |
+
+(click here to see the full [results](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Results.md))
+
+// NEED TO WRITE //
+
+Although the two evaluations above contained black-box testing, we decided to do some more of our own. To thoroughly test our game, we played through all possible paths and scenarios. By doing so, we were able to identify and address any other issues, bugs or complications that may have arisen. This allowed us to ensure that our game is fully functional and provides an enjoyable user experience.
 
 ## Process (15% ~750 words)
 
