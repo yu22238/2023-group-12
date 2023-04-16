@@ -98,29 +98,11 @@ o Describe implementation of your game, in particular highlighting the three are
 
 ## Evaluation (15% ~750 words)
 
-o One qualitative evaluation (your choice)
+After developing a functional prototype for our game, we conducted an evaluation to pinpoint any potential usability issues. For our initial assessment, we chose to conduct a Heuristic Evaluation as it provides immediate feedback and allows for a more comprehensive analysis compared to a Think-Aloud Evaluation.
 
-Think Aloud Evaluation:
-- Need to deal with bullets off screen, deleting them when they leave the screen so that the game does not glitch
-- Need to add instructions to make it clear which keys to use to move and how to shoot
-- Using space to jump? More clear?
-- Cannot press W&A at the same time
-- Can not distinguish between player and enemies
+We chose 3 people to be our evaluators and coached them into experts by elaborating on the game's design and allowing them to look through our code. Our experts then went through the interface twice, the first time to get a feel for the system and the second time to focus on different elements & explore the game further. After the evaluator was satisfied with the time spent on the interface, we asked them to fill in a [form](https://github.com/UoB-COMSM0110/2023-group-12/tree/main/Evaluation/Heuristic/BlankForm.md) providing us with a list of possible usability problems, the usability principle and the design feature that violated it. As each expert only provided a small number of usability problems, we waited until after the session to send out a complete list of usability problems and asked the experts to rate them based on their severity. The severity scores can be found here.
 
-Heuristics Evaluation:
-1. Visibility of system status
-   - Can not distinguish between player and enemies
-2. Consistency and standards
-   - Using space to jump?
-3. Error prevention
-   - Need to deal with bullets off screen, deleting them when they leave the screen so that the game does not glitch
-   - Cannot press W&A at the same time
-4. Help and documentation
-   - Need to add instructions to make it clear which keys to use to move and how to shoot
-
-o One quantitative evaluation (of your choice)
-
-o Description of how code was tested.
+From this assessment, we found that…
 
 ## Process (15% ~750 words)
 
