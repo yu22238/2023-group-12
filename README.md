@@ -120,7 +120,7 @@ For our quantitative evaluation, we decided to conduct a system usability survey
 
 | Player 1 | Player 2 | Player 3 | Player 4 | Player 5 |
 | --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+| 77.5 | 80 | 72.5 | 72.5 | 77.5 |
 
 (click [here](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Results.md) to see the full results)
 
