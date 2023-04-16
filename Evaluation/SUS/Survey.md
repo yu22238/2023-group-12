@@ -1,8 +1,8 @@
 # System Usability Survey (SUS)
 
 1. I think that I would like to use this system frequently
+![Screenshot 2023-04-16 at 19.39.37.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5ba8743-61f4-40a9-81bd-c2931786faf7/Screenshot_2023-04-16_at_19.39.37.png)
     
-    ![Screenshot 2023-04-16 at 19.41.46.png](System%20Usability%20Survey%20(SUS)%20f7379238599648e199f8e46e2bdf10ce/Screenshot_2023-04-16_at_19.41.46.png)
     
 2. I found the system unnecessarily complex
     
