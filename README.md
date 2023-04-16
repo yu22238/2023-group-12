@@ -112,6 +112,10 @@ As each expert only provided a small number of usability problems, we waited unt
 - Can not distinguish between player and enemies
 - Would forget which keys to use when switching between players
 
+As you can see, our biggest issue with the game was the glitching.  However, one of the experts provided a useful suggestion to address this problem. They recommended deleting the bullets once they had gone off of the screen in order to save memory and prevent the game from crashing. Due to the severity of this issue, we tackled it first and fortunately, this approach was successful in resolving the glitching issue. 
+
+As you can see, our experts pointed out that the keys and objectives of the game are unclear, so we have taken steps to address this issue. Firstly, we have added a start page that provides instructions on how to play the game. Additionally, we have included the aim of each level at the top of the screen to help players understand what they need to do to progress. Lastly, we have made it easier for players to restart by providing instructions on how to do so at the top of each level, preventing them from becoming stuck in the game. These improvements should help enhance the overall gameplay experience for our users.
+
 ## Process (15% ~750 words)
 
 o Teamwork. How did you work together, what tools did you use. Did you have team roles? Reflection on how you worked together.
