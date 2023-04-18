@@ -62,7 +62,7 @@ In order to complete each level and escape from the temple, players must work to
 o Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
 ### Use Case:
-Please Click here.[Usecase Diagram](./Demo/usecase.png)
+[Use Case Diagram](./Demo/usecase.png) please click here.
 ![Usecase Diagram](./Demo/usecase.png)
 
 ### User Stories:
