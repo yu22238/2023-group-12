@@ -61,6 +61,31 @@ In order to complete each level and escape from the temple, players must work to
 
 o Use case diagrams, user stories. Early stages design. Ideation process. How did you decide as a team what to develop?
 
+### Use Case:
+Please Click here.
+
+### User Stories:
+As a Fireboy, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over water, and poison to avoid death.
+As a Watergirl, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over fire, and poison to avoid death. 
+
+### Overview: 
+Development of a multiplayer platform game for collaborative play, similar to “Fireboy and Watergirl". It implements basic player movement, multiple interactive elements such as diamonds that can be collected, mechanisms that can be triggered, etc., and the game twists on enemies and weapons. The game contains several levels where the player can control the movement of the corresponding characters and move to the next level when the winning conditions are met and the end gate is entered, avoiding traps and defeating enemies if necessary.
+
+### Objective:
+- Develop a fun and engaging multiplayer game that appeals to a wide audience.
+- Create challenging levels with interactive elements that require strategy and skill to navigate.
+- Ensure smooth gameplay and controls for both players.
+- Give players the necessary guidance at certain times, such as operation tutorials and playing animations.
+
+### Early Stages Design:
+During the ideation process, our team discussed various game genres and ultimately decided on a platform game that has high popularity and potential for fun. Eventually, we chose to twist "Fireboy and Watergirl", a game that has a wide audience, is lightweight, and has a good play experience. We also brainstormed several games to find the appropriate aspects to twist to provide a richer experience for players. We chose to continue the original content of "Fireboy and Watergirl", with two players, traps, and levels. There are the classic actions of a 2D game: basic movement and jumping, as well as interactive elements, including river traps to jump over in the levels, players need to determine whether their character will drown in that river, and the ability to trigger blocker mechanisms and collect diamonds, but the difference is that we wanted to increase the difficulty of the game so that players must ensure that all the diamonds are collected in each level. This is a two-player game, both players must work together to solve the problem at hand and both enter their corresponding destination gates before they can finish the game. The game twist in adding enemies and handheld weapons for players, which were not present in the original "Fireboy and Watergirl", the player needs to kill the enemies if necessary, and if touches enemies while they are moving they will reduce their life expectancy and cause the player to die, so killing the enemies and then safely crossing over to where they occupied before. This makes for a very multi-dimensional experience: a collaborative multiplayer experience, the brainstorming process of solving trap puzzles, and the thrill of killing enemies.
+
+We also considered the technical aspects of the game, including the required classes and methods. The whole game was written using Processing, and we decided to design the GameObject class as the base class for all visible objects in the game, GameObject can have two basic methods: update and display, to refresh the state and render the screen respectively, and we can design subclasses for each type of object, such as Character, Tile, and Bullet, River, Diamond, Mechanism, etc. Players and Enemy can inherit from Character Class to implement the methods. We also designed that the game should have an InputManager class to handle user input for each player.
+To manage the game's different states and scenes, we designed the LevelManager class, which could implement win conditions, load different levels, manage the start and pass animations, etc. The LevelManager would instantiate the Game class, which would contain instances of the TileMap, Bullets, Enemies, Player, and all interactive element classes.
+
+Overall, our team's goal is to develop a challenging and entertaining multiplayer platform game that appeals to a wide audience. By brainstorming and carefully planning the game's mechanics and technical aspects, we believe we can achieve this goal and create a game that players will enjoy.
+
+
 ## Design (15% ~750 words)
 
 o System architecture. Class diagrams, behavioural diagrams.
