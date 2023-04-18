@@ -67,7 +67,7 @@ o System architecture. Class diagrams, behavioural diagrams.
 
 This is the class diagram that illustrates the class hierarchy of our 2D platformer game.
 [Class Diagram](./Demo/demo.drawio)
-![Class Diagram](./Demo/diagram.png)
+![Class Diagram](./Demo/FulDiagram.png)
 ### GameObject
 The top level of this hierarchy is occupied by the abstract class, GameObject, which is the base class for all visible objects in the game. It contains essential properties such as position, tag, width, and height. Additionally, it has two essential methods: "update" and "display". The "update" method updates the game object's state and is called every 1/120 second. The "display" method is responsible for drawing images on the screen and is called every frame (1/60 second).
 
