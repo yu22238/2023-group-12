@@ -63,7 +63,8 @@ o Use case diagrams, user stories. Early stages design. Ideation process. How di
 
 ### Use Case:
 Please Click here.
-
+[Class Diagram](./Demo/"use case.png")
+！[Class Diagram](./Demo/"use case.png")
 ### User Stories:
 As a Fireboy, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over water, and poison to avoid death.
 As a Watergirl, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over fire, and poison to avoid death. 
