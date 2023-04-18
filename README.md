@@ -71,9 +71,13 @@ This is the class diagram that illustrates the class hierarchy of our 2D platfor
 ### GameObject
 The top level of this hierarchy is occupied by the abstract class, GameObject, which is the base class for all visible objects in the game. It contains essential properties such as position, tag, width, and height. Additionally, it has two essential methods: "update" and "display". The "update" method updates the game object's state and is called every 1/120 second. The "display" method is responsible for drawing images on the screen and is called every frame (1/60 second).
 
-The GameObject class has three classes that extend it: Character, Tile, and Bullet. These classes are responsible for creating and managing characters, tiles, and bullets in the game.
+The GameObject class has several classes that extend it, including Character, Tile, Bullet, Diamond, River, DestinationGate, Button and Blocker. These classes are responsible for creating and managing characters, tiles, and all the interactive elements in the game.
 ### Character
-Two subclasses of the Character class are Player and Enemy, which represent the player character and the enemy characters, respectively. The Player and Enemy classes inherit all the properties and methods of the Character class.
+Two subclasses of the Character class are Player and Enemy, which represent the player character and the enemy characters, respectively. The Player and Enemy classes inherit all the properties and methods of the Character class, which handles the collision detection between character and platform while moving.
+
+The players have the abilities of jumping and firing bullets, they can also collet diamonds in the map. Every enemy in scene has a patrol area in which they move from left to right. The bullets can reduce to health of hitted enemies, and players will lose health once touched the enemies as well.
+
+There are two players in the game, namely Watergirl and Fireboy, which all extends from Player class, and four types of enemies namely Cucumber, Pirate, Captain and BigGuy, which all extends Enemy class. 
 
 The Character class aggregates three classes: Animator, StateMachine, and Collider. This means that, besides inheriting properties, the Character class has instances of these classes, and it can use their functionality to control the state and animation of the character objects in the game.
 ### Animator
@@ -82,14 +86,20 @@ The Animator class has several instances of Animation stored in a HashMap. The k
 Similarly, the Collider class is aggregated by Tile, Bullet and Character classes. The Tile, Bullet and Character classes have instances of Collider, and they can use its functionality to detect collisions between objects in the game. For example, to check if a bullet hits an enemy, or if player is standing on a platform.
 ### TileMap
 The TileMap class is composed of the Tile class, which means that TileMap has all the instances of Tiles. It is used to create and manage tile objects in every map in the game.
+### Diamonds, Rivers, Mechanism, DestinationGate
+The Diamonds class is composed of Diamond class, the Rivers class is composed of River class and Mechanism class is composed of Button and Blocker cass. These are all elements that players can interact with. For example, players can collect diamonds, rivers can kill the players once touched. The blockers are controlled by buttons that when player stands on buttons, the blocker will be removed from path. To finish the level, players need to reach their corresponding gates, which are instance of DestinationGate class.
 ### Bullets
-The Bullets class is composed of the Bullet class, which means that Bullets has all the instances of Bullet, and it can use its functionality to create and manage bullet objects in the game.
+The Bullets class is composed of the Bullet class, which means that Bullets has all the instances of Bullet, and it can use its functionality to create and manage bullet objects in the game. A new oject of bullet is created and added to bullets once player fired.
 ### Enemies
 Similar to Bullets class to Bullet, the Enemies class is composed of the Enemy class, and has all the instances of Enemy. It can use its functionality to create and manage all enemies in the game.
 ### InputManager
 The InputManager class is aggregated by the Player class, which means that the Player class has an instance of InputManager, and it can use its functionality to handle user input for the player character in the game. Since this game is a multiplayer game with two players, each player has an inputManager that responds to its unique keyboard input.
 ### Game
-Finally, the instances of TileMap, Bullets, Enemies, and Player are compositions of the Game class, which is a class for managing all the objects and game states. This means that the Game class has instances of these classes, along with other properties like gameStart and stage. Its functionality can be used to create and manage the different game state, like “game start” or “game over”, and game scenes, like “level 1” and “level 2”.
+The instances of TileMap, Bullets, Enemies, Diamonds, Rivers, Mechanism Watergirl and Fireboy are compositions of the Game class, which is a class for managing all the objects and game states. This means that the Game class has instances of these classes, along with other properties like gameStart and stage. Its functionality can be used to create and manage the different game state, like “game start” or “game over”, and game scenes, like “level 1” and “level 2”. It is also responsible for respawning enemies and players in every level and setting up the platform and interactive elements in scene.
+### LevelManager
+This class is responsible for managing the state of levels and transition between different levels. For example, the level will be increased once players clear current level, and the level can be reset by pressing 'R' on the keyboard.
+### Platform
+Finally, instances of Game, LevelManager, along with StartScreen are created in Platform. This is the starting point when launching the game.
 
 
 ## Implementation (15% ~750 words)
