@@ -66,9 +66,14 @@ o Use case diagrams, user stories. Early stages design. Ideation process. How di
 ![Usecase Diagram](./Demo/usecasediagram1.png)
 
 ### User Stories:
-As a Fireboy, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over water, and poison to avoid death.
+- As a player, I want to move and jump so that I can arrive at the destination gate and avoid obstacles.
+- As a player, I want to shoot bullets so that I can kill enemies to avoid harm.
+- As a player, I want to collect diamonds so that I can meet the winning condition.
+- As a player, I want to trigger mechanisms to clear obstacles or use the blocker as a springboard.
+- As a player, I want to get a tutorial at the beginning of the game so that I can know how the game works.
+- As a player, I want to restart in the middle of the game so that I can start the level again if players die.
+- As a player, I want to know when I'm going to pass the whole game so I can finish the game.
 
-As a Watergirl, I want to be able to move, jump, shoot bullets, collect diamonds, trigger mechanisms, reach the destination gate in each level, and when necessary, jump over fire, and poison to avoid death. 
 
 ### Overview: 
 Development of a two-player game for collaborative play, similar to “Fireboy and Watergirl". It implements basic player movement, multiple interactive elements such as diamonds that can be collected, mechanisms that can be triggered, etc., and the game twists on enemies and weapons. The game contains several levels where the player can control the movement of the corresponding characters and move to the next level when the winning conditions are met and the end gate is entered, avoiding traps and defeating enemies if necessary.
