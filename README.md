@@ -155,6 +155,7 @@ The LevelManager class manages the game state and difficulty switching, with its
 ### Level Design
 
 We employed a manual level design process using text files to represent the map layout and game objects. 
+
 We designed a custom format for representing the game’s levels using plain text files. Each character in the text file corresponded to a specific tile or game object, with a defined characters set representing the level layout. For example, we used the following characters: 
 - ‘ ’: empty space
 - ‘#’: wall
@@ -164,9 +165,11 @@ We designed a custom format for representing the game’s levels using plain tex
 - ‘F’: fire rivers
 - ‘D’: diamonds
 - etc
-- 
+
 Using the text-based format, we manually designed levels by creating text files with the desired layout of tiles and game objects. This approach allowed us to easily iterate on level designs and share them among team members for testing and feedback.
+
 We implemented a custom level parser function in our game to read the text files and instantiate the corresponding game objects in the game. The parser looped through each character in the text file, creating the appropriate game object based on the character’s representation, and placed it at the corresponding position in the game world’s grid. This process allowed us to efficiently generate levels from the text files during runtime.
+
 The visual design of each level was brought to life using a third-party assets called [pirate-bomb](https://pixelfrog-assets.itch.io/pirate-bomb).
 
 
