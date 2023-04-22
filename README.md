@@ -147,9 +147,9 @@ The Game and LevelManager class are called here to initiate our game logic. Impl
 The LevelManager class manages the game state and difficulty switching, with its implementation details shown in the figure below.
 ![LevelManager](./Demo/flowchart/LevelManager.png)
 
-###Level Design
+### Level Design
 
-###Game Objects
+### Game Objects
 
 
 ## Evaluation (15% ~750 words)
