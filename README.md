@@ -164,7 +164,7 @@ We designed a custom format for representing the game’s levels using plain tex
 - ‘P’: poison
 - ‘F’: fire rivers
 - ‘D’: diamonds
-- etc
+- etc.
 
 Using the text-based format, we manually designed levels by creating text files with the desired layout of tiles and game objects. This approach allowed us to easily iterate on level designs and share them among team members for testing and feedback.
 
