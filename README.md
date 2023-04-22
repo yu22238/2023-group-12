@@ -140,7 +140,7 @@ Finally, instances of Game, LevelManager, along with StartScreen are created in 
 ## Implementation (15% ~750 words)
 The implementation of our 2D two-player platformer game was primarily carried out using the Processing programming language. In this section, we will highlight three main challenges we encountered in the development process.
 ### Game Architecture
-The architecture of the game was designed to be modular, maintainable and scalable, with a focus on separation of concerns and efficient use of resources. To achieve this, we design classes for updating game loop and managing the overal logic and state change. Platformer is the entry of our game where the setup() and draw() functions are implemented as shown in the following flowchart. 
+The architecture of the game was designed to be modular, maintainable and scalable, with a focus on separation of concerns and efficient use of resources. To achieve this, we design classes for updating game loop and managing the overal logic and state change. The Platform is the entry of our game where the setup() and draw() functions are implemented as shown in the following flowchart. 
 
 ![Platformer](./Demo/flowchart/Platformer.png)
 
