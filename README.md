@@ -138,8 +138,19 @@ Finally, instances of Game, LevelManager, along with StartScreen are created in 
 
 
 ## Implementation (15% ~750 words)
+The implementation of our 2D two-player platformer game was primarily carried out using the Processing programming language. In this section, we will highlight three main challenges we encountered in the development process.
+### Game Architecture
+The architecture of the game was designed to be modular, maintainable and scalable, with a focus on separation of concerns and efficient use of resources. To achieve this, we design classes for updating game loop and managing the overal logic and state change. Platformer is the entry of our game where the setup() and draw() functions are implemented as shown in the following flowchart. 
+![Platformer](./Demo/flowchart/Platformer.png)
+The Game and LevelManager class are called here to initiate our game logic. Implementing the game loop was the first challenge we encountered, and to improve the game’s performance, we implemented our game loop based on the “Delta Time” method. In this type of game loop, the game loop measures the time elapsed since the last frame and uses that time to calculate how much the game state should be updated. Meanwhile, we created a new thread specifically for running the update logic of the game by making the Game class implement the Runnable interface, thus separating the value update logic from the rendering logic, as shown in the following flowchart. 
+![Game](./Demo/flowchart/Game.png)
+The LevelManager class manages the game state and difficulty switching, with its implementation details shown in the figure below.
+![LevelManager](./Demo/flowchart/LevelManager.png)
 
-o Describe implementation of your game, in particular highlighting the three areas of challenge in developing your game.
+###Level Design
+
+###Game Objects
+
 
 ## Evaluation (15% ~750 words)
 
