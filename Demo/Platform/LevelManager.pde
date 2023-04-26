@@ -29,7 +29,8 @@ public class LevelManager{
     
     public void checkForReset(){
       if (keyPressed && (key == 'r' || key == 'R')) {
-            game = new Game(); // Restart the game
+            // game = new Game(); // Restart the game
+            game.restartLevel();
         }
     }
     
@@ -42,7 +43,8 @@ public class LevelManager{
     public void incrementLevel(){
       mode++;
       level++;
-      game = new Game();
+      // game = new Game();
+      game.restartLevel();
     }
 
 }

@@ -29,6 +29,15 @@ class Game implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
     }
+
+    public void restartLevel() {
+        enemies = new Enemies();
+        bullets = new Bullets();
+        // diamonds = new Diamonds();
+        rivers = new Rivers();
+        mechanism = new Mechanism();
+        initClasses();
+    }
     
     private void initClasses() { 
         tileMap = new TileMap(level);

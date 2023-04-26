@@ -44,7 +44,7 @@ public abstract class Character extends GameObject {
         // character hit the platform from below
         if ((topLeftColl || topRightColl) && (!bottomLeftColl && !bottomRightColl)) {
             cancelYMove();
-            this.velocity.y = 1;
+            this.velocity.y = 0.1;
             return;
         }
         // character landed on platform
