@@ -1,3 +1,4 @@
+import java.io.File;
 // used to manage animation transition for player and enemies
 
 public class Animator {
@@ -9,11 +10,11 @@ public class Animator {
     public Animator(Character obj, String baseFilePath) {
         this.parent = obj;
         this.animations = new HashMap<State, Animation>();
-        this.baseFilePath = baseFilePath;
+        this.baseFilePath = baseFilePath.replace("/", File.separator);
     }
 
     public void setAnimation(State state, String filePath, int nums, float w, float h, boolean loop) {
-        Animation anim = new Animation(this.baseFilePath + "/" + filePath, nums, w, h, loop);
+        Animation anim = new Animation(this.baseFilePath + File.separator + filePath, nums, w, h, loop);
         this.animations.put(state, anim);     
     }
 

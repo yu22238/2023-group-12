@@ -16,24 +16,36 @@ public abstract class GameObject {
     protected PVector velocity;
     // indicate the current state of the object (IDLE, WALK, JUMP ...)
     protected State state;
-
+    
     public GameObject(float x, float y, float w, float h, String tag) {
         this.position = new PVector(x, y);
         this.w = w;
         this.h = h;
         this.tag = tag;
     }
-
+    
+    public void setWidth(float w) {
+        this.w = w;
+    }
+    
+    public void setHeight(float w) {
+        this.h = h;
+    }
+    
+    public void setPosition(float x,float y) {
+        this.position = new PVector(x, y);
+    }
+    
     public PVector getVelocity() { return this.velocity; }
     public State getState() { return this.state; }
     // public void setState(State state) { this.state = state; }
     public String getTag() { return this.tag; }
     public PImage getImage() { return this.image; }
     public void setImage(PImage img) { this.image = img; }
-
+    
     // update is called every frame (in draw())
     public abstract void update();
-
+    
     public void display() {
         image(this.image, this.position.x, this.position.y);
     }
