@@ -19,6 +19,7 @@ void setup() {
     level=1;
     game = new Game();
     startScreen = new StartScreen();
+    endScreen = new EndScreen();
     levelManager = new LevelManager();
 }
 
