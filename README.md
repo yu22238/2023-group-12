@@ -91,7 +91,7 @@ All characters and interactable elements should be lifelike, for example, charac
 
 Given that we need to develop a game together, we also need a careful division of labor. So we have also considered the technical aspects, including the basic classes and methods, to achieve development under a unified standard. As required, the entire game needed to programmed by Processing. We have decided the GameObject as the parent class for all objects, which is updated and displayed through the update and display methods, and its subclasses include elements that need to be saved in the game, such as Character, Tile, Bullet, River, Diamond, Mechanism, etc. The class related to character is Character, and Player and Enemy are subclasses of it.
 
-To manage the game's different states and scenes, we designed the LevelManager class, which could implement judging winning conditions, load different levels, manage the start and pass animations, etc. The LevelManager would instantiate the Game class, which would contain instances of the TileMap, Bullets, Enemies, Player, and all interactive element classes.
+To manage the game's different states and scenes, we designed the LevelManager class, which could implement judging winning conditions, load different levels, manage the start and pass animations, etc. The LevelManager would instantiate the Game class, which would contain instances subclasses of the GameObject Class.
 
 Overall, our team's goal is to develop a challenging and entertaining two-player game that appeals to a wide audience by brainstorming and carefully planning the game's ideation and technical aspects.
 
