@@ -17,6 +17,10 @@ public class LevelManager{
       if(mode == startMode){
         startScreen.display();
       }
+
+      if(mode == endMode){
+        endScreen.display();
+      }
       
       if(mode == level1 || mode == level2 || mode == level3){
         background(51);
