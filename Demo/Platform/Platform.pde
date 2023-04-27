@@ -12,6 +12,7 @@ int level;
 LevelManager levelManager;
 Game game;
 StartScreen startScreen;
+EndScreen endScreen;
 
 void setup() {
     size(1600, 896);
