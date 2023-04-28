@@ -243,22 +243,22 @@ Although the two evaluations above contained black-box testing, we decided to do
 ### Development Process
 At first, we held several brainstorming sessions to decide the game and the twist we were going to implement. We found it useful since everyone can express their thoughts and a bunch of great ideas were generated. Also, we could handle conflicts promptly and negotiate to get a suitable solution. After these sessions, we reached an agreement on the goals and outline of the game.
 
-We chose the agile methodology to manage our project since it was hard to get a specification at the beginning. Scrum is a widely used methodology in agile development. Due to the lack of time to follow a daily schedule, we decided to divide the development process into some short periods. At the end of every sprint, we got an executable game with some functions expected to implement in that version. For instance, in the first version, we’ve only got a game with one level and one player without weapons and enemies. Gradually, other elements like river, diamond and other maps were added to our game. Some main versions are listed below.
+We chose the agile methodology to manage our project since it was hard to get a specification at the beginning. Scrum is a widely used methodology in agile development. Due to the lack of time to follow a daily schedule, we decided to divide the development process into some small parts. At the end of every sprint, we got an executable game with some functions expected to be implemented in that version. For instance, in the first version, we’ve only got a game with one level and one controllable cube without weapons and enemies. Gradually, other elements like river, diamond and other maps were added to our game. Some main versions are listed below.
 
-| version | version 1 | version 2 | version 3 | version 4 |
+| Version | Version 1 | Version 2 | Version 3 | Version 4 |
 | :----: | :----: | :----: | :----:| :----: |
-| functions |one level<br>one cube<br>one cube | one level<br>one player<br>enemies not aggressive | one level<br>one player<br>enemies and weapons | multi-level<br>two-player<br>enemies and weapons |
+| **Functions** |one level<br>one cube<br>one cube | one level<br>one player<br>enemies not aggressive | one level<br>one player<br>enemies and weapons | multi-level<br>two-player<br>enemies and weapons |
 
-Another tool we used in agile development was Kanban. In the stage of sprint planning, we would have some offline meetings. Most of them were held in the form of brainstorming. Every member introduced the work they’d done then and discussed the features to be implemented. After a meeting, we recorded backlog as to-do and categorize other tasks by in-progress and done using sticky notes.
+Another tool we used in agile development was Kanban. In the stage of sprint planning, we would have some offline meetings. Most of them were held in the form of brainstorming. Every member introduced the work they’d done then and discussed the features to be implemented later. After a meeting, we categorized backlog by to-do and in-progress, and recorded other tasks as done using sticky notes.
 
 We valued communication. Apart from offline meetings, we communicated through WhatsApp, from which we can message a certain person or the whole team instantly. When some glitches were found or the game was updated, our members can give a response immediately. Using this online instant messaging app has greatly improved communication efficiency. 
 
-The tool that we used most was GitHub. And it turned out that it made our collaboration much more efficient. There are five branches for every member personally, a develop branch for merging and a main branch for the final version of the game. Every time we tried to modify or add some features, we must pull the develop branch, which contained the newest version. When it comes to pushing, we merged our branch into develop branch and updated the two branches together. Flowchart of the branch management is as follows.
+The tool that we used most was GitHub. And it turned out that it made our collaboration much more efficient. There are five branches for every member personally, a develop branch for merging and a main branch for the final version of the game. Every time someone tried to modify or add some features, they must pull the develop branch, which contained the newest version. When it comes to pushing, we merged our branch into develop branch and updated the two branches together. Flowchart of the branch management procedure is as follows.
 
 <img src="./Demo/gitflowchart.jpg" alt="gitflowchart" width="800" height="400">
 
 ### Team Roles
-We assigned a specific role to every member according to their preference and strength. Although members took charge of different parts, we shared thoughts regularly and always considered the availability and comprehensibility of APIs in separate sections. The table below summarizes the roles of each person.
+We assigned a specific role to every member according to their preference and strength. Although members took charge of different parts, we shared thoughts regularly and always considered the availability and comprehensibility of APIs in separate sections. The table below summarizes the role of each person.
 
 | Member Name | Team Role |
 | :---: | :-------: |
@@ -281,9 +281,9 @@ Siru was responsible for the process section and the implementation of multiple 
 ### Reflection
 Overall, we worked together well. Agile development allows us more flexibility especially when we don’t have a specific plan. We can also continuously improve and change features when we get feedback from evaluators or when we come up with better ideas. Also, the assignment of roles and use of GitHub encourage the increase in productivity since every member has clear accountability. We can easily identify issues and complete every required task.
 
-However, there are still some areas that we could improve in the development process. One of them is equal contribution. Because of the imbalanced workload in each area, some members make more efforts on specific features. Although it’s hard to distribute work in a completely fair way, we should adjust everyone’s workload in the process of development.
+However, there are still some areas that we could improve in the development process. One of them is equal contribution. Because of the imbalanced workload in different areas, some members make more efforts on specific features. Although it’s hard to distribute work in a completely fair way, we should adjust everyone’s workload during the process of development.
 
-Another critical challenge is efficient communication. For obvious reasons, it’s easy to record Kanban using sticky notes. But if we chose to use some online tools like Jira, the recording of tasks would be much more professional and not error-prone. Also, using online meeting software like Zoom instead of text message can help to enhance the effiency of communication. 
+Another critical challenge is efficient communication. For obvious reasons, it’s easy to record Kanban using sticky notes. But if we chose to use some online tools like Jira, the recording of tasks would be much more professional and not error-prone. Also, using online meeting software like Zoom instead of texting message can help to enhance the effiency of communication. 
 
 ## Conclusion (10% ~500 words)
 
