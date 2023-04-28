@@ -245,7 +245,9 @@ At first, we held several brainstorming sessions to decide the game and the twis
 
 We chose the agile methodology to manage our project since it was hard to get a specification at the beginning. Scrum is a widely used methodology in agile development. Due to the lack of time to follow a daily schedule, we decided to divide the development process into some short periods. At the end of every sprint, we got an executable game with some functions expected to implement in that version. For instance, in the first version, we’ve only got a game with one level and one player without weapons and enemies. Gradually, other elements like river, diamond and other maps were added to our game. Some main versions are listed below.
 
-| | |
+| version | version 1 | version 2 | version 3 | version 4 |
+| :----: | :----: | :----: | :----:| :----: |
+| functions |one level<br>one cube<br>one cube | one level<br>one player<br>enemies not aggressive | one level<br>one player<br>enemies and weapons | multi-level<br>two-player<br>enemies and weapons |
 
 Another tool we used in agile development was Kanban. In the stage of sprint planning, we would have some offline meetings. Most of them were held in the form of brainstorming. Every member introduced the work they’d done then and discussed the features to be implemented. After a meeting, we recorded backlog as to-do and categorize other tasks by in-progress and done using sticky notes.
 
@@ -253,7 +255,7 @@ We valued communication. Apart from offline meetings, we communicated through Wh
 
 The tool that we used most was GitHub. And it turned out that it made our collaboration much more efficient. There are five branches for every member personally, a develop branch for merging and a main branch for the final version of the game. Every time we tried to modify or add some features, we must pull the develop branch, which contained the newest version. When it comes to pushing, we merged our branch into develop branch and updated the two branches together. Flowchart of the branch management is as follows.
 
-<img src="relative/path/to/image.png" alt="Alt text" width="800" height="400">
+<img src="./Demo/gitflowchart.jpg" alt="gitflowchart" width="800" height="400">
 
 ### Team Roles
 We assigned a specific role to every member according to their preference and strength. Although members took charge of different parts, we shared thoughts regularly and always considered the availability and comprehensibility of APIs in separate sections. The table below summarizes the roles of each person.
