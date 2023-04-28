@@ -176,7 +176,9 @@ The visual design of each level was brought to life using a third-party assets c
 ### Game Objects
 
 
-## Evaluation (15% ~750 words)
+## Evaluation
+
+# Evaluation
 
 After developing a functional prototype for our game, we conducted an evaluation to pinpoint any potential usability issues. For our initial assessment, we chose to conduct a Heuristic Evaluation as it provides immediate feedback and allows for a more comprehensive analysis compared to a Think-Aloud Evaluation.
 
@@ -192,19 +194,49 @@ As each expert only provided a small number of usability problems, we waited unt
 - Can not distinguish between player and enemies
 - Forgetting which keys to use when switching between players
 
-As you can see, our biggest issue with the game was the glitching.  However, one of the experts provided a useful suggestion to address this problem. They recommended deleting the bullets once they had gone off of the screen in order to save memory and prevent the game from crashing. Due to the severity of this issue, we tackled it first and fortunately, this approach was successful in resolving the glitching issue. 
+Our main problem with the game was the frequent glitches, which significantly impacted the overall user experience. We received a suggestion from one of our experts, who recommended deleting bullets after they left the screen to address this issue. However, despite implementing this approach, we were still experiencing problems. After conducting further research, we decided to utilise object pooling as a solution. Object pooling involves reusing existing bullets instead of creating new ones each time the player fires. By implementing this technique, we were able to save memory and prevent the game from glitching, which greatly improved its overall performance.
 
 Also, our experts pointed out that the keys and objectives of the game are unclear, so we have taken steps to address this issue. Firstly, we have added a start page that provides instructions on how to play the game. Additionally, we have included the aim of each level at the top of the screen to help players understand what they need to do to progress. Lastly, we have made it easier for players to restart by providing instructions on how to do so at the top of each level, preventing them from becoming stuck in the game. These improvements should help enhance the overall gameplay experience for our users.
 
 For our quantitative evaluation, we decided to conduct a system usability survey (SUS) as it can be used on small sample sizes and produces reliable results. We asked 5 people to play our game and then fill out the [survey](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Survey.md). We then calculated the scores from each user and got the following results:
 
-| Player 1 | Player 2 | Player 3 | Player 4 | Player 5 |
-| --- | --- | --- | --- | --- |
-| 77.5 | 80 | 72.5 | 72.5 | 77.5 |
+| Player | Easiest Level | More Difficult Level |
+| --- | --- | --- |
+| 1 | 77.5 | 87.5 |
+| 2 | 80 | 75 |
+| 3 | 72.5 | 82.5 |
+| 4 | 72.5 | 70 |
+| 5 | 77.5 | 77 |
 
 (click [here](https://github.com/UoB-COMSM0110/2023-group-12/blob/master/Evaluation/SUS/Results.md) to see the full results)
 
-// NEED TO WRITE //
+Using these results, we decided to perform a Wilcoxon signed-rank test to conclude whether or not there is a significant difference between the two levels of difficulty. To do this, we first need to calculate the differences between the scores of the two levels for each player. We then ranked the differences by absolute value and assigned signs to them based on the direction of the difference. Finally, we calculated the test statistic and compared it to the critical value to determine if there is a significant difference between the two levels.
+
+| Player | Easiest Level | More Difficult Level | Difference |
+| --- | --- | --- | --- |
+| 1 | 77.5 | 87.5 | 10 |
+| 2 | 80 | 75 | -5 |
+| 3 | 72.5 | 82.5 | 10 |
+| 4 | 72.5 | 70 | -2.5 |
+| 5 | 77.5 | 77 | -0.5 |
+
+Ranked differences:
+
+| Player | Difference | Absolute Rank | Sign |
+| --- | --- | --- | --- |
+| 1 | 10 | 4.5 | + |
+| 2 | -5 | 2 | - |
+| 3 | 10 | 4.5 | + |
+| 4 | -2.5 | 1.5 | - |
+| 5 | -0.5 | 1 | - |
+
+(We assign a rank of 4.5 to the tied ranks of 4 and 5, and a rank of 1.5 to the 1 and 2 tie)
+
+We summed the ranks with positive and negative signs and got the values 9 and 4.5 respectively. With 4.5 being the smaller of these two values, we set our test statistic to be T=4.5.
+
+To determine if this result is significant, we compared it to the critical value for a two-tailed test with n = 5 observations. With alpha=0.05, we get a critical value of 2. Hence, we find that T = 4.5 falls within the significant range. Therefore, we can reject the null hypothesis that there is no difference between the two levels of difficulty, and conclude that there is a significant difference between the two levels.
+
+These results tell us that the performance of individuals at the easier level is significantly different from the performance at the more difficult level. This difference could indicate that one level is more challenging or demanding than the other, or that one level is easier and less demanding than the other - which is the desired conclusion. 
 
 Although the two evaluations above contained black-box testing, we decided to do some more of our own. To thoroughly test our game, we played through all possible paths and scenarios. By doing so, we were able to identify and address any other issues, bugs or complications that may have arisen. This allowed us to ensure that our game is fully functional and provides an enjoyable user experience.
 
