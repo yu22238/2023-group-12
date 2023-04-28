@@ -176,8 +176,6 @@ The visual design of each level was brought to life using a third-party assets c
 ### Game Objects
 
 
-## Evaluation
-
 # Evaluation
 
 After developing a functional prototype for our game, we conducted an evaluation to pinpoint any potential usability issues. For our initial assessment, we chose to conduct a Heuristic Evaluation as it provides immediate feedback and allows for a more comprehensive analysis compared to a Think-Aloud Evaluation.
