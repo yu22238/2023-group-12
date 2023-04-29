@@ -267,7 +267,7 @@ We assigned a specific role to every member according to their preference and st
 | :---: | :-------: |
 | Yuewen | Requirement Section<br>Level Design |
 | Zongjian | Design Section<br>System Structure<br>Enemies and Weapons |
-| Shuxing | Implementation Section<br>Multi-thread |
+| Shuxing | Implementation Section<br>Game Loop<br>Multi-thread |
 | Francesca | Evaluation Section<br>Level Manager |
 | Siru | Process Section<br>Multiple Players |
 
