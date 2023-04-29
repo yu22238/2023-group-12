@@ -173,8 +173,11 @@ We implemented a custom level parser function in our game to read the text files
 The visual design of each level was brought to life using a third-party assets called [pirate-bomb](https://pixelfrog-assets.itch.io/pirate-bomb).
 
 
-### Game Objects
-
+### Collision Detection
+![CollidersOverview](./Demo/flowchart/CollidersOverview.png)
+![CharacterClassDiagram](./Demo/flowchart/CharacterClassDiagram.png)
+![ColliderClassDiagram](./Demo/flowchart/ColliderClassDiagram.png)
+![CollisionDetectionFlowchart](./Demo/flowchart/CollisionDetectionFlowchart.png)
 
 # Evaluation
 
