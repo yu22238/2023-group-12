@@ -174,10 +174,29 @@ The visual design of each level was brought to life using a third-party assets c
 
 
 ### Collision Detection
-![CollidersOverview](./Demo/flowchart/CollidersOverview.png)
-![CharacterClassDiagram](./Demo/flowchart/CharacterClassDiagram.png)
-![ColliderClassDiagram](./Demo/flowchart/ColliderClassDiagram.png)
-![CollisionDetectionFlowchart](./Demo/flowchart/CollisionDetectionFlowchart.png)
+
+It is essential for our project to have an accurate and efficient collision detection mechanism. The third challenge we faced during the implementation is collision detection. To solve this problem, we implemented a collision detection method that is based on checking the rectangle borders of the game objects, which proved to be effective in our game. 
+
+We first created the Collider class which is used for representing the rectangle borders of game objects. This class also contains the method of checking if two rectangles are collided. The core method of the Collider class is the collideWith() method, which takes in another Collider instance as an argument and checks if the collision has happened. To improve the performance of our game, we are only checking the key points of objects, including the four corners and four midpoints.
+
+In the Character class, we implemented the main logic for calling collision detection. When the characters move, the collision of the X-axis and Y-axis will be checked, which is achieved by calling the moveX() and moveY() methods. Both methods check if the characters will collide with other game objects in their next position. If the collision is detected in either axis, the movement on this axis will be cancelled. 
+
+The following diagram shows an overview of the collision detection architecture where the relationship of the classes is shown. 
+
+
+<img style="display: block; margin: auto" src="./Demo/flowchart/CollidersOverview.png" alt="CollidersOverview" width="400">
+
+
+The following diagrams are the class diagram for the Character class and Collider class. 
+
+<img src="./Demo/flowchart/CharacterClassDiagram.png" alt="CharacterClassDiagram" width="400">
+<img src="./Demo/flowchart/ColliderClassDiagram.png" alt="ColliderClassDiagram" width="200">
+
+
+The following diagram is the flowchart for collision detection which demonstrates the steps for detection in details.
+
+<img style="display: block; margin: auto" src="/Demo/flowchart/CollisionDetectionFlowchart.png" alt="CollisionDetectionFlowchart" width="500">
+
 
 # Evaluation
 
