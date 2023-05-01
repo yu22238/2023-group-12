@@ -31,6 +31,9 @@ class Game implements Runnable {
     }
     
     public void restartLevel() {
+        if (level >= 4) {
+            return;
+        }
         enemies = new Enemies();
         bullets = new Bullets();
         // diamonds = new Diamonds();

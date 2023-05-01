@@ -28,15 +28,19 @@ public class EndScreen {
       textAlign(CENTER, CENTER);
       textSize(35);
       fill(0);
-      text("PRESS ANY KEY TO RESTART:", width/2, height/2 - 40);
+      text("PRESS R TO RESTART:", width/2, height/2 - 40);
 
     gameRestart();
     }
 
 
     public void gameRestart(){
-        if(keyPressed){
+        println(keyPressed);
+        println(key);
+
+        if(keyPressed && (key == 'R' || key == 'r')){
             levelManager.mode=0;
+            level = 1;
         }
     }
 
