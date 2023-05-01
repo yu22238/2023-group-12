@@ -307,6 +307,7 @@ Our game has currently met the requirements of this course. However, if we have 
 - Randomly generate enemies.
 - Rescue ally.
 - Increase a Tilemap editor.
+
 I believe we will still utilize all the Software Engineer skills and tools introduced in the lecture to ensure an efficient development process, including the Scrum, Kanban, GitHub, UML diagram, class diagram, etc. that we have adopted, and use appropriate testing methods for the project, with attention to project management and measuring our processes throughout, without breaking any Software Law, and at the end, the game needs to be evaluated and further improved by selecting the appropriate HCI Evaluation methods. And consciously try out more efficient and scientific tools and methods beyond the scope of the course, to choose something more suitable for the team in the context of the project.
 
 ## 9. Individual contribution
