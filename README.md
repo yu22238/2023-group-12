@@ -16,7 +16,7 @@ Overview of Software Engineering Project Report<br>Fireboy & Watergirl
 | Francesca Heyworth | an19149@bristol.ac.uk | [@an19149](https://github.com/an19149) |
 | Zongjian Wang | qf22311@bristol.ac.uk | [@wangnevin](https://github.com/wangnevin) |
 
-![group photo](./TeamPhoto/team.jpeg)
+![group photo](./Teamphoto/team.jpeg)
 
 ## 2. Introduction (5%  ~250 words)
 
