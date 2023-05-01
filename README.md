@@ -1,7 +1,6 @@
 <center> 
 <h1>
-Overview of Software Engineering Project Report<br>
-Fireboy & Watergirl
+Overview of Software Engineering Project Report<br>Fireboy & Watergirl
 </h1>
 </center>
 
