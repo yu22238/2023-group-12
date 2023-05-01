@@ -29,7 +29,7 @@ class Game implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
+    
     public void restartLevel() {
         enemies = new Enemies();
         bullets = new Bullets();
@@ -110,7 +110,7 @@ class Game implements Runnable {
     private void setMechanism() {
         ArrayList<Float> mechanismData = tileMap.mechanismData;
         for (int i = 0;i < mechanismData.size();i += 6) {
-            button = new Button(mechanismData.get(i),mechanismData.get(i+1));
+            button = new Button(mechanismData.get(i),mechanismData.get(i + 1));
             blocker = new Blocker(mechanismData.get(i + 2),mechanismData.get(i + 3),mechanismData.get(i + 4),mechanismData.get(i + 5));
             mechanism.buttonListAdd(button);
             mechanism.blockerListAdd(blocker);
@@ -118,7 +118,7 @@ class Game implements Runnable {
     }
     
     public void update() {
-
+        
         diamonds.update();
         fireboy.update();
         watergirl.update();
@@ -130,7 +130,7 @@ class Game implements Runnable {
     }
     
     public void display() {
-
+        
         tileMap.display();
         diamonds.display();
         fireGate.display();
@@ -141,7 +141,7 @@ class Game implements Runnable {
         bullets.display();
         enemies.display();
         instructions.display();
-
+        
     }
     
     public void run() {

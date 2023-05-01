@@ -14,7 +14,7 @@ public class River extends GameObject {
             setImage(loadImage("Assets/RiverTest/green.png"));
         }
         this.image.resize(50, 20);
-        riverColl=new Collider(x+5,y,50,20);
+        riverColl=new Collider(x+20,y+6,20,15);
     }
 
     public void update() {}
