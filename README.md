@@ -1,15 +1,28 @@
+<<<<<<< HEAD
 <center> 
 <h1>
 Overview of Software Engineering Project Report
 Fireboy & Watergirl
 </h1>
 </center>
+=======
+<h1>
+<center>
+Overview of Software Engineering Project Report<br>Fireboy & Watergirl
+</center>
+</h1>
+
+>>>>>>> 26e7f075ee1a78c8a80f539738e30d50952022e9
 
 - Demo Video Link: TBC!!
 
 ## 1. Team
 
 - 2023-group-12
+<<<<<<< HEAD
+=======
+
+>>>>>>> 26e7f075ee1a78c8a80f539738e30d50952022e9
 | Member Name | Email | Github account |
 | :---: | :-----: | :-------: |
 | Siru Zhang | ac22915@bristol.ac.uk | [@DryLichen](https://github.com/DryLichen) |
@@ -18,8 +31,12 @@ Fireboy & Watergirl
 | Francesca Heyworth | an19149@bristol.ac.uk | [@an19149](https://github.com/an19149) |
 | Zongjian Wang | qf22311@bristol.ac.uk | [@wangnevin](https://github.com/wangnevin) |
 
+<<<<<<< HEAD
 ![group photo](./Team Photo/team.jpeg)
 
+=======
+![group photo](./TeamPhoto/team.jpeg)
+>>>>>>> 26e7f075ee1a78c8a80f539738e30d50952022e9
 
 ## 2. Introduction (5%  ~250 words)
 
