@@ -2,7 +2,9 @@
 Overview of Software Engineering Project Report<br>Fireboy & Watergirl
 </h1>
 
-- Demo Video Link: https://youtu.be/AMvl-hmNSHo
+## Demo Video
+
+Click [here](https://youtu.be/AMvl-hmNSHo) to see our video!
 
 ## 1. Team
 
