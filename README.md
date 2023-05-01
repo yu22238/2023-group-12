@@ -1,14 +1,16 @@
-<center> 
 <h1>
+<center>
 Overview of Software Engineering Project Report<br>Fireboy & Watergirl
-</h1>
 </center>
+</h1>
+
 
 - Demo Video Link: TBC!!
 
 ## 1. Team
 
 - 2023-group-12
+
 | Member Name | Email | Github account |
 | :---: | :-----: | :-------: |
 | Siru Zhang | ac22915@bristol.ac.uk | [@DryLichen](https://github.com/DryLichen) |
@@ -17,7 +19,7 @@ Overview of Software Engineering Project Report<br>Fireboy & Watergirl
 | Francesca Heyworth | an19149@bristol.ac.uk | [@an19149](https://github.com/an19149) |
 | Zongjian Wang | qf22311@bristol.ac.uk | [@wangnevin](https://github.com/wangnevin) |
 
-![group photo](./Team Photo/team.jpeg)
+![group photo](./TeamPhoto/team.jpeg)
 
 ## 2. Introduction (5%  ~250 words)
 
