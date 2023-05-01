@@ -313,11 +313,11 @@ I believe we will still utilize all the Software Engineer skills and tools intro
 ## 9. Individual contribution
 
 | Member Name | Team Role | Contribution% |
-| :---: | :-------: | :-----: |
-| Yuewen | Requirement Section<br>Level Design | 20% |
-| Zongjian | Design Section<br>System Structure<br>Enemies and Weapons | 20% |
-| Shuxing | Implementation Section<br>Game Loop<br>Multi-thread | 20% |
-| Francesca | Evaluation Section<br>Level Manager | 20% |
-| Siru | Process Section<br>Multiple Players | 20% |
+| :------: | :-------: | :-----: |
+| Yuewen Wang | Requirement Section<br>Level Design | 20% |
+| Zongjian Wang | Design Section<br>System Structure<br>Enemies and Weapons | 20% |
+| Shuxing Li | Implementation Section<br>Game Loop<br>Multi-thread | 20% |
+| Francesca Heyworth | Evaluation Section<br>Level Manager | 20% |
+| Siru Zhang | Process Section<br>Multiple Players | 20% |
 
 
