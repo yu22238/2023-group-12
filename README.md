@@ -1,11 +1,15 @@
-# <center>Overview of Software Engineering Project Report</center>
-# <center>Fireboy & Watergirl</center>
+<center> 
+<h1>
+Overview of Software Engineering Project Report
+Fireboy & Watergirl
+</h1>
+</center>
 
 - Demo Video Link: TBC!!
 
 ## 1. Team
 
-2023-group-12
+- 2023-group-12
 | Member Name | Email | Github account |
 | :---: | :-----: | :-------: |
 | Siru Zhang | ac22915@bristol.ac.uk | [@DryLichen](https://github.com/DryLichen) |
@@ -14,7 +18,7 @@
 | Francesca Heyworth | an19149@bristol.ac.uk | [@an19149](https://github.com/an19149) |
 | Zongjian Wang | qf22311@bristol.ac.uk | [@wangnevin](https://github.com/wangnevin) |
 
-![group photo](./images/team.jpeg)
+![group photo](./Team Photo/team.jpeg)
 
 
 ## 2. Introduction (5%  ~250 words)
@@ -300,12 +304,12 @@ In the process of solving challenges, we have improved our technical skills: our
 
 ### 8.3 Future Work
 Our game has currently met the requirements of this course. However, if we have the time and energy, we would continue to refine it and make it excellent, through the following aspects:
-Developing more levels and maps.
-Develop more tiles to interact with.
-Add a health bar.
-Randomly generate enemies.
-Rescue ally.
-Increase a Tilemap editor.
+- Developing more levels and maps.
+- Develop more tiles to interact with.
+- Add a health bar.
+- Randomly generate enemies.
+- Rescue ally.
+- Increase a Tilemap editor.
 I believe we will still utilize all the Software Engineer skills and tools introduced in the lecture to ensure an efficient development process, including the Scrum, Kanban, GitHub, UML diagram, class diagram, etc. that we have adopted, and use appropriate testing methods for the project, with attention to project management and measuring our processes throughout, without breaking any Software Law, and at the end, the game needs to be evaluated and further improved by selecting the appropriate HCI Evaluation methods. And consciously try out more efficient and scientific tools and methods beyond the scope of the course, to choose something more suitable for the team in the context of the project.
 
 ## 9. Individual contribution
