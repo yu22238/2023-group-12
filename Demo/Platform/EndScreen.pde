@@ -35,8 +35,6 @@ public class EndScreen {
 
 
     public void gameRestart(){
-        println(keyPressed);
-        println(key);
 
         if(keyPressed && (key == 'R' || key == 'r')){
             levelManager.mode=0;
